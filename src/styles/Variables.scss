@@ -8,24 +8,33 @@ $primary2: #BDE3A5;
 $primary3: #93C572;
 $primary4: #68A143;
 $primary5: #467F21;
+$primaryWhite: #e9f3e3;
+$primaryBlack: #0f2003;
 
 $secondary1: #C9B9D6;
 $secondary2: #9E86B3;
 $secondary3: #7B5C97;
 $secondary4: #5D397C;
 $secondary5: #421F61;
+$secondaryWhite: #ebe5f0;
+$secondaryBlack: #140323;
 
 $tertiary1: #FFEFDA;
 $tertiary2: #FFE0B9;
 $tertiary3: #E0B682;
 $tertiary4: #B8884D;
 $tertiary5: #916126;
+$tertiaryWhite: #fcf7f1;
+$tertiaryBlack: #271704;
 
 $complementary1: #F4D1DA;
 $complementary2: #EBAABA;
 $complementary3: #CC768C;
 $complementary4: #A8465F;
 $complementary5: #84233B;
+$complementaryWhite: #f8edef;
+$complementaryBlack: #26040d;
+
 
 /*#endregion Variables*/
 
@@ -33,7 +42,21 @@ $complementary5: #84233B;
 /*#region mixins*/
 @mixin Titleh1 {
     background-color: $primary3;
-    background-image: linear-gradient(0deg, $primary3, $tertiary3);
+    background-image: linear-gradient(0deg, $primary3, $primary2, $primary3);
+    background-clip: text;
+    /* background-size: 100%; */
+    /* background-repeat: repeat; */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    text-align: center;
+    // margin-bottom: 40px;
+}
+
+@mixin Titleh2 {
+    background-color: $secondary3;
+    background-image: linear-gradient(0deg, $secondary3, $secondary2, $secondary3);
     background-clip: text;
     /* background-size: 100%; */
     /* background-repeat: repeat; */
