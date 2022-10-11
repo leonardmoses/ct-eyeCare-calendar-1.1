@@ -1,5 +1,15 @@
 @import './Variables.scss' ;
-
 @import './Type.scss' ;
-
 @import './Media.scss';
+
+
+body {
+    background-color: darkgrey;
+
+    Layout {
+        Header {
+            background-color: lightblue;
+        }
+        
+    }
+}
