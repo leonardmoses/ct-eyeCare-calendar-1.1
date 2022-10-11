@@ -1,0 +1,83 @@
+/*#region colors*/
+
+$themeColor: #93C572;
+
+// Color Theme //
+$primary1: #DBF0CD;
+$primary2: #BDE3A5;
+$primary3: #93C572;
+$primary4: #68A143;
+$primary5: #467F21;
+
+$secondary1: #C9B9D6;
+$secondary2: #9E86B3;
+$secondary3: #7B5C97;
+$secondary4: #5D397C;
+$secondary5: #421F61;
+
+$tertiary1: #FFEFDA;
+$tertiary2: #FFE0B9;
+$tertiary3: #E0B682;
+$tertiary4: #B8884D;
+$tertiary5: #916126;
+
+$complementary1: #F4D1DA;
+$complementary2: #EBAABA;
+$complementary3: #CC768C;
+$complementary4: #A8465F;
+$complementary5: #84233B;
+
+/*#endregion Variables*/
+
+
+/*#region mixins*/
+@mixin Titleh1 {
+    background-color: $primary3;
+    background-image: linear-gradient(0deg, $primary3, $tertiary3);
+    background-clip: text;
+    /* background-size: 100%; */
+    /* background-repeat: repeat; */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    text-align: center;
+    // margin-bottom: 40px;
+}
+
+@mixin NavLinks {
+    background-color: $primary3;
+    background-image: linear-gradient(0deg, $primary3, $tertiary3);
+    background-clip: text;
+    /* background-size: 100%; */
+    /* background-repeat: repeat; */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+@mixin Button($FontSize) {
+
+    background-color: $tertiary4;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: $FontSize;
+    border-radius: 7px;
+
+    transition-duration: 0.2s;
+    
+    &:hover {
+        background-color: $tertiary2;
+        color: $tertiary4;
+    }
+    &:active {
+        transform: scale(0.97);
+        color: $tertiary1;
+    }
+}
+
+/*#endregion mixins*/

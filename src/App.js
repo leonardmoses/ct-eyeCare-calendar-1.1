@@ -1,10 +1,15 @@
-import './App.css';
+import './styles/App.scss';
+import Layout from './components/common/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
+
+    <Layout>
+        <div className="App">
+          <h1>Hello World</h1>
+      </div>
+    </Layout>
+
   );
 }
 
