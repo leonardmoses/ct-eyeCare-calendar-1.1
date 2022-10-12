@@ -19,7 +19,7 @@ const Year = () => {
 // #region State Function 2
     //Creating the State. Function Method 2
     function countInitialYear() {
-        console.log(`Run useState function for year.`)
+        // console.log(`Run useState function for year.`)
         return 2022
     }
 
@@ -36,19 +36,21 @@ const Year = () => {
     // Decreases Count: This is a function version and a better method.
     function decreaseYear() {
         setYear( prevYear => prevYear -1 )
-        console.log(`Decreased by 1.`)
+        // console.log(`Decreased by 1.`)
     }
 
     function increaseYear() {
         setYear( prevYear => prevYear +1 )
-        console.log(`Increased by 1.`)
+        // console.log(`Increased by 1.`)
     }
 
     return ( 
-        <div>
-            <button onClick={decreaseYear}>-</button>
-                <span>{year}</span>
-            <button onClick={increaseYear}>+</button>
+        <div className="yearCountDiv">
+            <span>
+                <button onClick={decreaseYear}>Prev</button>
+                    <h2>{year}</h2>
+                <button onClick={increaseYear}>Next</button>
+            </span>
         </div>
 
      );
