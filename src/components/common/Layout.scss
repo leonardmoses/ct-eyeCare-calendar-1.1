@@ -17,6 +17,17 @@ body {
         // justify-content: center;
         // align-items: center;
 
+        .year {
+            // background-color: blue;
+            display: flex;
+            justify-content: center;
+            // align-items: center;
+            span {
+                @include Titleh2;
+                font-size: 30px;
+            }
+        }
+
         .topHeaderContent {
             // background-color: $primary5;
             // color: $primary5;
