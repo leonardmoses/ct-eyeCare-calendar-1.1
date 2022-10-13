@@ -104,49 +104,51 @@ function LeapYearCheck() {
 
     // useEffect(() => SetAllDays(), []);
 
+    const thirtyOneDdays = [];
+    const threeSixtyFiveDays = [];
+    const paddingInitial = [];
+
+    for (let i=1; i<=dec1Padding ; i++) {
+        paddingInitial.push(i);
+    }
+
+    for (let i=1; i<=31 ; i++) {
+        thirtyOneDdays.push(i);
+    }
+
+    for (let i=1; i<=365; i++) {
+        threeSixtyFiveDays.push(i);
+    }
+
+    console.log(thirtyOneDdays)
+    console.log(threeSixtyFiveDays)
+
     return ( 
         <div ref={allDaysRef} className="julianDaysComponent"> 
 
-            <div className="prev-year-days">27</div>
-            <div className="prev-year-days">28</div>
-            <div className="prev-year-days">29</div>
-            <div className="prev-year-days">30</div>
-            <div className="prev-year-days">31</div>
+            {paddingInitial.map((day, index) => {
+                return (
+                    <div key={index} className="prev-year-padding">
+                        {day}
+                    </div>
+                )
+            })}
 
-            <div className="current-year-days">1</div>
-            <div className="current-year-days">2</div>
-            <div className="current-year-days">3</div>
-            <div className="current-year-days">4</div>
-            <div className="current-year-days">5</div>
-            <div className="current-year-days">6</div>
-            <div className="current-year-days">7</div>
-            <div className="current-year-days">8</div>
-            <div className="current-year-days">365</div>
-            <div className="current-year-days">1</div>
-            <div className="current-year-days">2</div>
-            <div className="current-year-days">3</div>
-            <div className="current-year-days">4</div>
-            <div className="current-year-days">5</div>
-            <div className="current-year-days">6</div>
-            <div className="current-year-days">7</div>
-            <div className="current-year-days">8</div>
-            <div className="current-year-days">365</div>
-            <div className="current-year-days">1</div>
-            <div className="current-year-days">2</div>
-            <div className="current-year-days">3</div>
-            <div className="current-year-days">4</div>
-            <div className="current-year-days">5</div>
-            <div className="current-year-days">6</div>
-            <div className="current-year-days">7</div>
-            <div className="current-year-days">8</div>
-            <div className="current-year-days">365</div>
+            {thirtyOneDdays.map((day, index) => {
+                return (
+                    <div key={index} className="prev-year-days">
+                        {day}
+                    </div>
+                )
+            })}
 
-            <div className="next-year-days">1</div>
-            <div className="next-year-days">2</div>
-            <div className="next-year-days">3</div>
-            <div className="next-year-days">4</div>
-            <div className="next-year-days">5</div>
-            <div className="next-year-days">6</div>
+            {threeSixtyFiveDays.map((day, index) => {
+                return(
+                    <div key={index} className="current-year-days">
+                        {day}
+                    </div>
+                )
+            })}
 
         </div> 
 

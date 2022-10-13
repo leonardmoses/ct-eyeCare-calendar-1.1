@@ -105,16 +105,16 @@ html {
                                 display: flex;
                                 flex-wrap: wrap;
 
-                                // .prev-year-padding {
-                                //     background-color: rgb(40, 40, 40);
-                                //     width:calc(100% / 7);
-                                //     height: calc(100vh/7);
-                                //     color: rgba(0, 0, 0, 0.0);
-                                //     border: solid black 1px;
-                                //     cursor: pointer;
-                                //     transition: background-color 0.2s;
+                                .prev-year-padding {
+                                    background-color: rgb(40, 40, 40);
+                                    width:calc(100% / 7);
+                                    height: calc(100vh/7);
+                                    color: rgba(0, 0, 0, 0.0);
+                                    border: solid black 1px;
+                                    cursor: pointer;
+                                    transition: background-color 0.2s;
                                     
-                                // }
+                                }
 
                                 .prev-year-days, .current-year-days, .next-year-days{
                                     background-color: $tertiary3;
