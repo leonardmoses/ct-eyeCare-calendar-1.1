@@ -42,7 +42,7 @@ $complementaryBlack: #26040d;
 /*#region mixins*/
 @mixin Titleh1 {
     background-color: $primary3;
-    background-image: linear-gradient(0deg, $primary3, $primary2, $primary3);
+    background-image: linear-gradient(0deg, $complementary4, $complementary2, $complementary4);
     background-clip: text;
     /* background-size: 100%; */
     /* background-repeat: repeat; */

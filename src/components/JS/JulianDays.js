@@ -51,8 +51,9 @@ function LeapYearCheck() {
 
     // #region Generating Days
 
-    const thirtyOneDdays = [];
-    const threeSixtyFiveDays = [];
+    const dec1PrevYearDays = [];
+    const currentYearDays = [];
+    const Jan31NextYearDays = [];
     const dec1paddingInitial = [];
     const jan31paddingInitial = [];
 
@@ -61,19 +62,23 @@ function LeapYearCheck() {
     }
 
     for (let i=1; i<=31 ; i++) {
-        thirtyOneDdays.push(i);
+        dec1PrevYearDays.push(i);
     }
 
     for (let i=1; i<=365; i++) {
-        threeSixtyFiveDays.push(i);
+        currentYearDays.push(i);
+    }
+
+    for (let i=1; i<=31 ; i++) {
+        Jan31NextYearDays.push(i);
     }
 
     for (let i=1; i<=Jan31Padding ; i++) {
         jan31paddingInitial.push(i);
     }
 
-    // console.log(thirtyOneDdays)
-    // console.log(threeSixtyFiveDays)
+    // console.log(dec1PrevYearDays)
+    // console.log(currentYearDays)
 
     // #endregion Generating Days
 
@@ -88,7 +93,7 @@ function LeapYearCheck() {
                 )
             })}
 
-            {thirtyOneDdays.map((day, index) => {
+            {dec1PrevYearDays.map((day, index) => {
                 return (
                     <div key={index} className="prev-year-days">
                         {day}
@@ -96,9 +101,17 @@ function LeapYearCheck() {
                 )
             })}
 
-            {threeSixtyFiveDays.map((day, index) => {
+            {currentYearDays.map((day, index) => {
                 return(
                     <div key={index} className="current-year-days">
+                        {day}
+                    </div>
+                )
+            })}
+
+            {Jan31NextYearDays.map((day, index) => {
+                return (
+                    <div key={index} className="next-year-days">
                         {day}
                     </div>
                 )
