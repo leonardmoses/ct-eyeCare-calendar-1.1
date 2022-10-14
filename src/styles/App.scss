@@ -105,7 +105,7 @@ html {
                                 display: flex;
                                 flex-wrap: wrap;
 
-                                .prev-year-padding {
+                                .prev-year-padding, .next-year-padding {
                                     background-color: rgb(40, 40, 40);
                                     width:calc(100% / 7);
                                     height: calc(100vh/7);

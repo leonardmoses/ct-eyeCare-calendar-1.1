@@ -9,14 +9,18 @@ const JulianDays = () => {
     // let currentDate = new Date('Dec 29, 1984');
     let firstDayOfYear = new Date(currentDate.getFullYear(), 0)
     let dec1PrevYear = new Date(currentDate.getFullYear(), -1)
+    let Feb1NextYear = new Date(currentDate.getFullYear(), +13);
+    let Jan31NextYear = Feb1NextYear.getDay()-1;
     let totalYearDays = 365;
     let dec1Padding = dec1PrevYear.getDay()
+    let Jan31Padding = 6-Jan31NextYear;
 
-    console.log(currentDate)
-    console.log(firstDayOfYear)
-    console.log(dec1PrevYear)
-    console.log(dec1PrevYear.getDay())
-    // console.log(dec1Padding)
+    console.log(`${currentDate} ---- Today`)
+    console.log(`${firstDayOfYear} ---- Jan 1 This Year`)
+    // console.log(`${dec1PrevYear} ---- Prev Year Dec1`)
+    console.log(`${dec1PrevYear.getDay()} ---- Dec1 Day of Week`)
+    console.log(`${Jan31NextYear} ---- Jan31 Day of Week`)
+    console.log(`${Jan31Padding} ---- Jan 31 Padding Days`)
     // #endregion setting the Date and Initial Variables
 
     // #region Leap Year Check
@@ -44,72 +48,16 @@ function LeapYearCheck() {
     }
     LeapYearCheck()
 // #endregion
-    
 
-
-    function setDaysOfYear() {
-        const monthDays = document.querySelector('.julianDaysComponent');
-        console.log(monthDays)
-        
-        let days = "";
-        
-        for (let i = 1; i<= dec1Padding; i++) {
-            days += `<div className='prev-year-padding'>${i}</div>`;
-            monthDays.innerHTML = days;
-        }
-        
-        for (let i = 1; i<= 31; i++) {
-            days += `<div className='prev-year-days'>${i}</div>`;
-            monthDays.innerHTML = days;
-        }
-        
-        for (let i = 1; i<= totalYearDays; i++) {
-            days += `<div className='current-year-days'>${i}</div>`;
-            monthDays.innerHTML = days;
-        }
-        
-        for (let i = 1; i<= 31; i++) {
-            days += `<div className='prev-year-days'>${i}</div>`;
-            monthDays.innerHTML = days;
-        }
-    }
-
-// function setMonthDays() {
-//     const monthDays = document.querySelector('.julianDaysComponent');
-//     console.log(monthDays)
-// }
-
-    const allDaysRef = useRef();
-
-    const SetAllDays = () => {
-
-        let monthDays = allDaysRef.current.innerHTML;
-        let days = "";
-
-        for (let i = 1; i<= 31; i++) {
-            days += `<div className='prev-year-padding'>${i}</div>`;
-            monthDays.innerHTML = days;
-        }
-        console.log(days)
-        
-    }
-
-    // const RenderAllDays = () => {
-    //     return (
-
-    //     )
-    // };
-
-    // SetAllDays();
-
-    // useEffect(() => SetAllDays(), []);
+    // #region Generating Days
 
     const thirtyOneDdays = [];
     const threeSixtyFiveDays = [];
-    const paddingInitial = [];
+    const dec1paddingInitial = [];
+    const jan31paddingInitial = [];
 
     for (let i=1; i<=dec1Padding ; i++) {
-        paddingInitial.push(i);
+        dec1paddingInitial.push(i);
     }
 
     for (let i=1; i<=31 ; i++) {
@@ -120,13 +68,19 @@ function LeapYearCheck() {
         threeSixtyFiveDays.push(i);
     }
 
-    console.log(thirtyOneDdays)
-    console.log(threeSixtyFiveDays)
+    for (let i=1; i<=Jan31Padding ; i++) {
+        jan31paddingInitial.push(i);
+    }
+
+    // console.log(thirtyOneDdays)
+    // console.log(threeSixtyFiveDays)
+
+    // #endregion Generating Days
 
     return ( 
-        <div ref={allDaysRef} className="julianDaysComponent"> 
+        <div className="julianDaysComponent"> 
 
-            {paddingInitial.map((day, index) => {
+            {dec1paddingInitial.map((day, index) => {
                 return (
                     <div key={index} className="prev-year-padding">
                         {day}
@@ -145,6 +99,14 @@ function LeapYearCheck() {
             {threeSixtyFiveDays.map((day, index) => {
                 return(
                     <div key={index} className="current-year-days">
+                        {day}
+                    </div>
+                )
+            })}
+
+            {jan31paddingInitial.map((day, index) => {
+                return (
+                    <div key={index} className="next-year-padding">
                         {day}
                     </div>
                 )
