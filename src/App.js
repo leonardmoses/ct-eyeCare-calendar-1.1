@@ -1,10 +1,61 @@
+import React, {useState, useEffect} from 'react';
 import './styles/App.scss';
 import Layout from './components/common/Layout';
 import JulianDays from './components/JS/JulianDays';
 
+
 function App() {
 
-  
+  const testList = [
+    {
+      name: 'Lennie',
+      event: 'Have meeting',
+      time: "12:00pm"
+    }
+  ]
+
+  const URL = `https://reqres.in/api/users`
+  // const URL = "https://contrivia-backend.herokuapp.com/";
+  // const URL = 'https://see-care-php-7-4-kevincranmer180966.codeanyapp.com/see-care-php-7.4/staff/calendar/querypage.php'
+
+  //GET
+  fetch( URL, {
+    method: 'GET',
+    }).then(res => {
+      return res.json()
+    })
+    .then(data => {
+      const list = data.data
+      console.log(list)
+    })
+      
+      
+    .catch(error => console.log('ERROR'))
+
+
+
+  // //POST
+  // fetch( URL, {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({
+  //     id: 7,
+  //     email: 'lennie@lennie.com',
+  //     first_name: 'Lennie',
+  //     last_name: 'Moses',
+
+  //   })
+  //   }).then(res => {
+  //     return res.json()
+  //   })
+  //   .then(data => console.log(data))
+  //   .catch(error => console.log('ERROR'))
+
+
+
+
   return (
 
     <Layout>
@@ -12,6 +63,11 @@ function App() {
 
 
         <div className="calContainer">
+        <div>
+        Test Server:<br/>
+        
+
+        </div>
 
           <div className="calHeader">
               <div className="selectedMonth"><h2>Test Month</h2></div>
