@@ -85,7 +85,6 @@ body {
                 justify-content: center;
                 bottom: 2px;
 
-                
                 .months {
                     background-color: $primary4;
                     color: $primaryWhite;
@@ -99,6 +98,7 @@ body {
                     border: solid 1px $primary5;
                     border-radius: 5px;
                     transition: background-color 0.2s;
+
                 }
                 .months:hover {
                     background-color: $primary1;
@@ -106,7 +106,47 @@ body {
                     border: solid 1px $primary5;
                     cursor: pointer;
                 }
-            }
+
+                //#region Colors for each Month
+                #December {
+                    background-color: rgb(5, 43, 181);
+                }
+                #January {
+                    background-color: rgb(1, 128, 154);
+                }
+                #February {
+                    background-color: rgb(8, 214, 166);
+                }
+                #March {
+                    background-color: rgb(2, 144, 96);
+                }
+                #April {
+                    background-color: rgb(4, 103, 35);
+                }
+                #May {
+                    background-color: rgb(8, 196, 2);
+                }
+                #June {
+                    background-color: rgb(201, 53, 4);
+                }
+                #July {
+                    background-color: rgb(128, 32, 5);
+                }
+                #August {
+                    background-color: rgb(119, 83, 6);
+                }
+                #September {
+                    background-color: rgb(209, 121, 6);
+                }
+                #October {
+                    background-color: rgb(175, 159, 9);
+                }
+                #November {
+                    background-color: rgb(97, 4, 81);
+                }
+            //#endregion
+
+        }
 
         }
     }

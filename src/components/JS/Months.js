@@ -24,7 +24,7 @@ const Months = () => {
             <div className="monthsContainer">
                 {months.map((month, index) => {
                     return (
-                        <div key={index} className="months">
+                        <div key={index} className="months" id={month}>
                             {month}
                         </div>
                     )
