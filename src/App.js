@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useInsertionEffect} from 'react';
 import './styles/App.scss';
 import Layout from './components/common/Layout';
 import JulianDays from './components/JS/JulianDays';
+
 
 
 function App() {
@@ -14,25 +15,31 @@ function App() {
     }
   ]
 
-  const URL = `https://reqres.in/api/users`
-  // const URL = "https://contrivia-backend.herokuapp.com/";
+  // const URL = `https://reqres.in/api/users`
+  const URL = "https://contrivia-backend.herokuapp.com/trivia";
   // const URL = 'https://see-care-php-7-4-kevincranmer180966.codeanyapp.com/see-care-php-7.4/staff/calendar/querypage.php'
 
   //GET
-  fetch( URL, {
-    method: 'GET',
-    }).then(res => {
-      return res.json()
-    })
-    .then(data => {
-      const list = data.data
-      console.log(list)
-    })
-      
-      
-    .catch(error => console.log('ERROR'))
 
+  let list = []
 
+  const getRequest = () => {
+    fetch(URL, {
+      // origin: 'http://localhost:3000',
+      method: 'GET'
+      }).then(res => {
+        return res.json()
+      })
+      .then(data => {
+        list = data
+        console.log(list)
+      })
+        
+      // .catch(error => console.log('ERROR'))
+  }
+
+    getRequest();
+    // console.log(list)
 
   // //POST
   // fetch( URL, {
@@ -54,7 +61,11 @@ function App() {
   //   .catch(error => console.log('ERROR'))
 
 
-
+  // useEffect(() => {
+  //   fetch('https://see-care-php-7-4-kevincranmer180966.codeanyapp.com/see-care-php-7.4/staff/calendar/querypage.php')
+  //   // fetch("https://contrivia-backend.herokuapp.com/trivia")
+  //   console.log('use effect ran')
+  // }, [])
 
   return (
 

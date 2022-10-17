@@ -1,5 +1,9 @@
-@mixin Infinite {
-    @media only screen and (min-width: 1295px ) { @content; }
+// @mixin Infinite {
+//     @media only screen and (min-width: 1295px ) { @content; }
+// }
+
+@mixin Res1240 {
+    @media only screen and (max-width: 1235 ) { @content; }
 }
 
 @mixin Res900 {

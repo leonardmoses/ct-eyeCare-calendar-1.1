@@ -1,3 +1,39 @@
 @import './Variables.scss' ;
 @import './Type.scss' ;
 @import './Media.scss';
+
+
+
+html {
+    body {
+        .App {
+            .calContainer {
+                .calHeader {
+                    .selectedMonth {}
+                    .selectedDate {}
+                }
+                .daysOfWeek {
+                    .weekdays {}
+                }
+                    .calendar {
+                        .julianDays {
+                            .julianDaysComponent{
+                                .prev-year-padding, .prev-year-days, .current-year-days, .next-year-days, .next-year-padding {
+                                    // @include Res1240 {width:calc(100% / 7.9);}
+                                }
+                                .prev-year-padding, .next-year-padding {}
+                                .prev-year-days, .current-year-days, .next-year-days{}
+                                .prev-year-days, .next-year-days {}
+
+                                .prev-year-days:hover , .current-year-days:hover, .prev-year-days:hover, .next-year-days:hover{}
+                                .prev-year-padding:hover, .next-year-padding:hover {}
+                            }
+                        }
+                    }
+                div::-webkit-scrollbar {
+                //     display: none; /* for Chrome, Safari, and Opera */
+                }
+            }
+        }
+    }
+}
