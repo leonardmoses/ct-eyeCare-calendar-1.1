@@ -1,7 +1,13 @@
 import React, {useState, useEffect, useRef} from "react";
-
+import Year from "./Year";
 
 const JulianDays = () => {
+
+    // // Testing changing the days when changing the years 
+    // let year = Year().props.children.props.children[1].props.children;
+    // console.log(year)
+    // console.log(new Date(`Jan 1, ${year}`))
+
 
     // #region setting the Date and Initial Variables
     // Set date to current date

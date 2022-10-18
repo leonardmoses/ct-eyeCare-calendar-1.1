@@ -2,10 +2,12 @@ import React, {useState, useEffect, useInsertionEffect} from 'react';
 import './styles/App.scss';
 import Layout from './components/common/Layout';
 import JulianDays from './components/JS/JulianDays';
+import Year from './components/JS/Year';
 
 
 
 function App() {
+
 
   const testList = [
     {
@@ -16,8 +18,10 @@ function App() {
   ]
 
   // const URL = `https://reqres.in/api/users`
-  const URL = "https://contrivia-backend.herokuapp.com/trivia";
+  // const URL = 'https://reqres.in/api/users/2'
+  // const URL = "https://contrivia-backend.herokuapp.com/trivia";
   // const URL = 'https://see-care-php-7-4-kevincranmer180966.codeanyapp.com/see-care-php-7.4/staff/calendar/querypage.php'
+  const URL = 'https://see-care.com/caljsontest.php'
 
   //GET
 
@@ -25,40 +29,62 @@ function App() {
 
   const getRequest = () => {
     fetch(URL, {
-      // origin: 'http://localhost:3000',
       method: 'GET'
       }).then(res => {
         return res.json()
       })
       .then(data => {
-        list = data
+        list = data.data
         console.log(list)
       })
         
       // .catch(error => console.log('ERROR'))
   }
 
-    getRequest();
+    getRequest(); 
     // console.log(list)
 
-  // //POST
-  // fetch( URL, {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify({
-  //     id: 7,
-  //     email: 'lennie@lennie.com',
-  //     first_name: 'Lennie',
-  //     last_name: 'Moses',
+  //POST
+  const postRequest = () => {
+    fetch( URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: 7,
+        email: 'lennie@lennie.com',
+        first_name: 'Lennie',
+        last_name: 'Moses',
+        avatar: "this is the avatar"
+  
+      })
+      }).then(res => {
+        return res.json()
+      })
+      .then(data => {
+        list = data[7]
+        console.log(list)
+      })
+      // .catch(error => console.log('ERROR'))
+  }
 
-  //   })
-  //   }).then(res => {
-  //     return res.json()
-  //   })
-  //   .then(data => console.log(data))
-  //   .catch(error => console.log('ERROR'))
+// postRequest();
+
+const deleteRequest = () => {
+  fetch( URL, {
+    method: 'DELETE'
+    }).then(res => {
+      return res.json()
+    })
+    .then(data => {
+      list = data.data
+      console.log(list)
+    })
+    // .catch(error => console.log('ERROR'))
+}
+
+// deleteRequest();
 
 
   // useEffect(() => {

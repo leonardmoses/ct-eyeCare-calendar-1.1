@@ -44,6 +44,8 @@ const Year = () => {
         // console.log(`Increased by 1.`)
     }
 
+
+
     return ( 
         <div className="yearCountDiv">
             <span>
