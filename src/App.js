@@ -3,6 +3,7 @@ import './styles/App.scss';
 import Layout from './components/common/Layout';
 import JulianDays from './components/JS/JulianDays';
 import Year from './components/JS/Year';
+import axios from 'axios';
 
 
 
@@ -21,7 +22,10 @@ function App() {
   // const URL = 'https://reqres.in/api/users/2'
   // const URL = "https://contrivia-backend.herokuapp.com/trivia";
   // const URL = 'https://see-care-php-7-4-kevincranmer180966.codeanyapp.com/see-care-php-7.4/staff/calendar/querypage.php'
-  const URL = 'https://see-care.com/caljsontest.php'
+  // const URL = 'https://see-care.com/caljsontest.php'
+  // const URL = 'https://date.nager.at/api/v2/publicholidays/2020/GB'
+  // const URL = 'http://localhost:4000/publicholidays/2020/GB'
+  const URL = 'http://localhost:4000/see-care-php-7.4/staff/calendar/querypage.php'
 
   //GET
 
@@ -34,7 +38,7 @@ function App() {
         return res.json()
       })
       .then(data => {
-        list = data.data
+        list = data
         console.log(list)
       })
         
@@ -52,18 +56,19 @@ function App() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        id: 7,
-        email: 'lennie@lennie.com',
-        first_name: 'Lennie',
-        last_name: 'Moses',
-        avatar: "this is the avatar"
+        pk: '4',
+        start: '2022-10-18 12:00:00',
+        end: '2022-10-18 14:00:00',
+        description: 'test event',
+        category: 'meeting',
+        notes: 'this is just for testing purposes',
   
       })
       }).then(res => {
         return res.json()
       })
       .then(data => {
-        list = data[7]
+        list = data
         console.log(list)
       })
       // .catch(error => console.log('ERROR'))
@@ -71,20 +76,6 @@ function App() {
 
 // postRequest();
 
-const deleteRequest = () => {
-  fetch( URL, {
-    method: 'DELETE'
-    }).then(res => {
-      return res.json()
-    })
-    .then(data => {
-      list = data.data
-      console.log(list)
-    })
-    // .catch(error => console.log('ERROR'))
-}
-
-// deleteRequest();
 
 
   // useEffect(() => {
