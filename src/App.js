@@ -4,102 +4,35 @@ import Layout from './components/common/Layout';
 import JulianDays from './components/JS/JulianDays';
 import Year from './components/JS/Year';
 import axios from 'axios';
+import Modal from './components/Modal';
+import Request from './components/Request'
 
 
 
 function App() {
 
+  // #region Modal
+  const [isOpen, setIsOpen] = useState(false)
+  // #endregion
 
-  const testList = [
-    {
-      name: 'Lennie',
-      event: 'Have meeting',
-      time: "12:00pm"
-    }
-  ]
-
-  // const URL = `https://reqres.in/api/users`
-  // const URL = 'https://reqres.in/api/users/2'
-  // const URL = "https://contrivia-backend.herokuapp.com/trivia";
-  // const URL = 'https://see-care-php-7-4-kevincranmer180966.codeanyapp.com/see-care-php-7.4/staff/calendar/querypage.php'
-  // const URL = 'https://see-care.com/caljsontest.php'
-  // const URL = 'https://date.nager.at/api/v2/publicholidays/2020/GB'
-  // const URL = 'http://localhost:4000/publicholidays/2020/GB'
-  const URL = 'http://localhost:4000/see-care-php-7.4/staff/calendar/querypage.php'
-
-  //GET
-
-  let list = []
-
-  const getRequest = () => {
-    fetch(URL, {
-      method: 'GET'
-      }).then(res => {
-        return res.json()
-      })
-      .then(data => {
-        list = data
-        console.log(list)
-      })
-        
-      // .catch(error => console.log('ERROR'))
-  }
-
-    getRequest(); 
-    // console.log(list)
-
-  //POST
-  const postRequest = () => {
-    fetch( URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        pk: '4',
-        start: '2022-10-18 12:00:00',
-        end: '2022-10-18 14:00:00',
-        description: 'test event',
-        category: 'meeting',
-        notes: 'this is just for testing purposes',
   
-      })
-      }).then(res => {
-        return res.json()
-      })
-      .then(data => {
-        list = data
-        console.log(list)
-      })
-      // .catch(error => console.log('ERROR'))
-  }
-
-// postRequest();
-
-
-
-  // useEffect(() => {
-  //   fetch('https://see-care-php-7-4-kevincranmer180966.codeanyapp.com/see-care-php-7.4/staff/calendar/querypage.php')
-  //   // fetch("https://contrivia-backend.herokuapp.com/trivia")
-  //   console.log('use effect ran')
-  // }, [])
-
   return (
 
     <Layout>
       <div className="App">
-
+      <Request/>
 
         <div className="calContainer">
-        <div>
-        Test Server:<br/>
-        
-
-        </div>
 
           <div className="calHeader">
               <div className="selectedMonth"><h2>Test Month</h2></div>
               <div className="selectedDate"><h4>Test Date</h4></div>
+          </div>
+          
+          <div className="button_wrapper_style">
+            <button onClick={() => setIsOpen(true)}>Add Event</button>
+            <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+            </Modal>
           </div>
 
           <div className="daysOfWeek">

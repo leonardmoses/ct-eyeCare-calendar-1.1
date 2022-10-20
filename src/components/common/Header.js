@@ -6,7 +6,7 @@ const Header = () => {
     return ( 
         <div className='Header'>
             
-            <div className="titleDiv"><h1>Calendar App Name</h1></div>
+            <div className="titleDiv"><h1>See-Care-Cal</h1></div>
             <div className="yearDiv">
                 <Year/>
             </div>
