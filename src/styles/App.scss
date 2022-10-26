@@ -147,6 +147,14 @@ html {
                                     cursor: pointer;
 
                                     transition: background-color 0.2s;
+
+                                    @include iphone12Pro {
+                                        border-radius: 8px;
+                                    };
+
+                                    @include iphoneSE {
+                                        border-radius: 6px;
+                                    };
                                 }
 
                                 .prev-year-padding, .next-year-padding {

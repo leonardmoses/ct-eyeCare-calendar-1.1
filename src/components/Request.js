@@ -34,7 +34,12 @@ const Request = () => {
         if(events) {
           return (
             <div>
-                <h1>{events[0].details}</h1>
+                <h1>Event Name: {events[1].eventname}</h1>
+                <h1>Start Date: {events[1].start}</h1>
+                <h1>End Date: {events[1].end}</h1>
+                <h1>Event Creator: {events[1].createdby}</h1>
+                <h1>Participants: {events[1].participants}</h1>
+                <h1>Details: {events[1].details}</h1>
           </div>
 
           )
