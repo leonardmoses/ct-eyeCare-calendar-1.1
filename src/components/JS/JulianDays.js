@@ -77,7 +77,7 @@ function LeapYearCheck() {
         dec1paddingInitial.push(i);
     }
 
-    for (let i=1; i<=10 ; i++) {
+    for (let i=1; i<=31 ; i++) {
         dec1PrevYearDays.push(i);
     }
 
@@ -208,10 +208,13 @@ function LeapYearCheck() {
 
     // #endregion currentYearDay Generator
 
+    for (let i=1; i<=31 ; i++) {
+        Jan31NextYearDays.push(i);
+    }
 
-    // for (let i=1; i<=Jan31Padding ; i++) {
-    //     jan31paddingInitial.push(i);
-    // }
+    for (let i=1; i<=Jan31Padding ; i++) {
+        jan31paddingInitial.push(i);
+    }
 
     // console.log(dec1PrevYearDays)
     // console.log(currentYearDays)
@@ -249,11 +252,11 @@ function LeapYearCheck() {
                     </div>
                 )
             })}
-    {/*
+
             {Jan31NextYearDays.map((day, index) => {
                 return (
                     <div key={index} className="next-year-days">
-                        {day}
+                        <h6>{day}</h6>
                     </div>
                 )
             })}
@@ -265,7 +268,7 @@ function LeapYearCheck() {
                     </div>
                 )
             })}
-    */}
+
         </div> 
 
      ); //Close for Component's Main  Return
