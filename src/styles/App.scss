@@ -167,6 +167,12 @@ html {
                                     background-color: $tertiary3;
                                     color: $tertiary5;
                                     transition: background-color 0.2s;
+
+                                    h6 {
+                                        font-size: 14px;
+                                        padding: 3px 0 0 3px;
+                                    }
+
                                 }
 
                                 .prev-year-days, .next-year-days {

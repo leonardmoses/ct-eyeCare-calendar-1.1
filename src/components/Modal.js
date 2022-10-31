@@ -15,10 +15,11 @@ const Modal = ({ open, children, onClose }) => {
     const [createdby, setCreatedby] = useState('')
     const [eventname, setEventname] = useState('')
     const [details, setDetails] = useState('')
+    const [dayID, setDayID] = useState(null)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const blog = {start, end, participants, createdby, eventname, details}
+        const blog = {start, end, participants, createdby, eventname, details, dayID}
  
         console.log(blog)
      }
@@ -40,7 +41,8 @@ const Modal = ({ open, children, onClose }) => {
             participants,
             createdby,
             eventname,
-            details
+            details,
+            dayID
         }).then(res => console.log('Posting Data', res)).catch(err => console.log(err))
     }
 
@@ -97,6 +99,13 @@ const Modal = ({ open, children, onClose }) => {
                               value={details}
                               onChange={(e)=> setDetails(e.target.value)}
                             />
+                            <br/>
+                            <label>dayID</label>
+                            <input
+                              type="number"
+                              value={dayID}
+                              onChange={(e)=> setDayID(e.target.value)}
+                            />
 
                             <br/><br/>
                             <button onClick={postData}>POST</button>
@@ -109,6 +118,7 @@ const Modal = ({ open, children, onClose }) => {
                     <p>createdby: {createdby}</p>
                     <p>eventname: {eventname}</p>
                     <p>details: {details}</p>
+                    <p>dayID: {dayID}</p>
                     <br/><br/>
                     <button onClick={onClose}>Close Modal</button>
                     <br/><br/>
