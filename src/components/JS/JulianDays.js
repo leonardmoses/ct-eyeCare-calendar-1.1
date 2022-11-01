@@ -246,9 +246,12 @@ function LeapYearCheck() {
             {currentYearDays.map((day, index) => {
                 return(
                     <div key={index} className="current-year-days">
-                        <h6>{day.julianCount}</h6>
-                        <h6>{day.month}</h6>
-                        <h6>{day.monthCount}</h6>
+                        <h6 className="julianCount">{day.julianCount}</h6>
+                        <div className="monthCount">
+                            <h6>{day.month}</h6>
+                            <h6>{day.monthCount}</h6>
+                        </div>
+
                     </div>
                 )
             })}
