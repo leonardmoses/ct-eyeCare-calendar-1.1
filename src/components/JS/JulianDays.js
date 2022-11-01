@@ -102,62 +102,62 @@ function LeapYearCheck() {
     const currentYearGenerator = () => {
         //January Day Generator
         for (let i=1; i<=31; i++) {
-            const property = {...dayProperty, julianCount: i, monthCount: i, month: 'January'}
+            const property = {...dayProperty, julianCount: i, monthCount: i, month: 'January', monthShort: 'Jan'}
             JanuaryDays.push(property)
         }
         //February Day Generator
         for (let i=1; i<=leapDay; i++) {
-            const property = {...dayProperty, julianCount: i + JanuaryDays[JanuaryDays.length -1].julianCount, monthCount: i, month: 'February'}
+            const property = {...dayProperty, julianCount: i + JanuaryDays[JanuaryDays.length -1].julianCount, monthCount: i, month: 'February', monthShort: 'Feb'}
             FebruaryDays.push(property)
         }
         //March Day Generator
         for (let i=1; i<=31; i++) {
-            const property = {...dayProperty, julianCount: i + FebruaryDays[FebruaryDays.length -1].julianCount, monthCount: i, month: 'March'}
+            const property = {...dayProperty, julianCount: i + FebruaryDays[FebruaryDays.length -1].julianCount, monthCount: i, month: 'March', monthShort: 'Mar'}
             MarchDays.push(property)
         }
         //April Day Generator
         for (let i=1; i<=30; i++) {
-            const property = {...dayProperty, julianCount: i + MarchDays[MarchDays.length -1].julianCount, monthCount: i, month: 'April'}
+            const property = {...dayProperty, julianCount: i + MarchDays[MarchDays.length -1].julianCount, monthCount: i, month: 'April', monthShort: 'Apr'}
             AprilDays.push(property)
         }
         //May Day Generator
         for (let i=1; i<=31; i++) {
-            const property = {...dayProperty, julianCount: i + AprilDays[AprilDays.length -1].julianCount, monthCount: i, month: 'May'}
+            const property = {...dayProperty, julianCount: i + AprilDays[AprilDays.length -1].julianCount, monthCount: i, month: 'May', monthShort: 'May'}
             MayDays.push(property)
         }
         //June Day Generator
         for (let i=1; i<=30; i++) {
-            const property = {...dayProperty, julianCount: i + MayDays[MayDays.length -1].julianCount, monthCount: i, month: 'June'}
+            const property = {...dayProperty, julianCount: i + MayDays[MayDays.length -1].julianCount, monthCount: i, month: 'June', monthShort: 'Jun'}
             JuneDays.push(property)
         }
         //July Day Generator
         for (let i=1; i<=31; i++) {
-            const property = {...dayProperty, julianCount: i + JuneDays[JuneDays.length -1].julianCount, monthCount: i, month: 'July'}
+            const property = {...dayProperty, julianCount: i + JuneDays[JuneDays.length -1].julianCount, monthCount: i, month: 'July', monthShort: 'Jul'}
             JulyDays.push(property)
         }
         //August Day Generator
         for (let i=1; i<=31; i++) {
-            const property = {...dayProperty, julianCount: i + JulyDays[JulyDays.length -1].julianCount, monthCount: i, month: 'August'}
+            const property = {...dayProperty, julianCount: i + JulyDays[JulyDays.length -1].julianCount, monthCount: i, month: 'August', monthShort: 'Aug'}
             AugustDays.push(property)
         }
         //September Day Generator
         for (let i=1; i<=30; i++) {
-            const property = {...dayProperty, julianCount: i + AugustDays[AugustDays.length -1].julianCount, monthCount: i, month: 'September'}
+            const property = {...dayProperty, julianCount: i + AugustDays[AugustDays.length -1].julianCount, monthCount: i, month: 'September', monthShort: 'Sep'}
             SeptemberDays.push(property)
         }
         //October Day Generator
         for (let i=1; i<=31; i++) {
-            const property = {...dayProperty, julianCount: i + SeptemberDays[SeptemberDays.length -1].julianCount, monthCount: i, month: 'October'}
+            const property = {...dayProperty, julianCount: i + SeptemberDays[SeptemberDays.length -1].julianCount, monthCount: i, month: 'October', monthShort: 'Oct'}
             OctoberDays.push(property)
         }
         //November Day Generator
         for (let i=1; i<=30; i++) {
-            const property = {...dayProperty, julianCount: i + OctoberDays[OctoberDays.length -1].julianCount, monthCount: i, month: 'November'}
+            const property = {...dayProperty, julianCount: i + OctoberDays[OctoberDays.length -1].julianCount, monthCount: i, month: 'November', monthShort: 'Nov'}
             NovemberDays.push(property)
         }
         //December Day Generator
         for (let i=1; i<=31; i++) {
-            const property = {...dayProperty, julianCount: i + NovemberDays[NovemberDays.length -1].julianCount, monthCount: i, month: 'December'}
+            const property = {...dayProperty, julianCount: i + NovemberDays[NovemberDays.length -1].julianCount, monthCount: i, month: 'December', monthShort: 'Dec'}
             DecemberDays.push(property)
         }
         //Pushing Each Months Days to the whole year
@@ -246,9 +246,9 @@ function LeapYearCheck() {
             {currentYearDays.map((day, index) => {
                 return(
                     <div key={index} className="current-year-days">
-                        <h6 className="julianCount">{day.julianCount}</h6>
+                        <h6 className="julianCount">({day.julianCount})</h6>
                         <div className="monthCount">
-                            <h6>{day.month}</h6>
+                            <h6>{day.monthShort}</h6>
                             <h6>{day.monthCount}</h6>
                         </div>
 
