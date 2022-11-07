@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useInsertionEffect} from 'react';
 import './styles/App.scss';
 import Layout from './components/common/Layout';
-import JulianDays from './components/JS/JulianDays';
-import Year from './components/JS/Year';
+import JulianDays from './components/JulianDays';
+import Year from './components/Year';
 import axios from 'axios';
 import Modal from './components/Modal';
 import Request from './components/Request'

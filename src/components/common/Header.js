@@ -1,6 +1,6 @@
-import Months from "../JS/Months";
-import WindowResize from "../JS/WindowResize";
-import Year from "../JS/Year";
+import Months from "../Months";
+import WindowResize from "../WindowResize";
+import Year from "../Year";
 
 const Header = () => {
     return ( 
