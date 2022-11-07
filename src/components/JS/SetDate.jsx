@@ -59,3 +59,5 @@
        LeapYearCheck()
 
     //#endregion Leap Year Check
+
+    console.log("____________ JS END ____________")

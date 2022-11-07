@@ -6,8 +6,9 @@ import {URL} from './JS/URLS'
 
 const Modal = ({ open, children, onClose }) => {
     
-    let date00 = ''
+    // Conditional Statement to make 0 format into 00 format.
 
+    let date00 = ''
     if (new Date().getDate() <= 9) {
       date00 = `0${new Date().getDate()}`;
 
@@ -15,11 +16,11 @@ const Modal = ({ open, children, onClose }) => {
       date00 = (new Date().getDate());
     }
 
-    let date = `${new Date().getFullYear()}-${new Date().getMonth()}-${date00}`
+    let date = `${new Date().getFullYear()}-${new Date().getMonth()+1}-${date00}`
     let time = `${new Date().getHours()}:${new Date().getMinutes()}`;
     let currentDateTime = `${date}T${time}`
 
-    // console.log(currentDateTime)
+    console.log(currentDateTime)
 
     const [events, setEvents] = useState(null)
 
