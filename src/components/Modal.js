@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios, { Axios } from 'axios';
-
+import {URL} from './JS/URLS'
 
 
 
@@ -19,9 +19,7 @@ const Modal = ({ open, children, onClose }) => {
     let time = `${new Date().getHours()}:${new Date().getMinutes()}`;
     let currentDateTime = `${date}T${time}`
 
-    console.log(currentDateTime)
-
-    const URL = 'https://6350235ddf22c2af7b64a794.mockapi.io/api/v1/events'
+    // console.log(currentDateTime)
 
     const [events, setEvents] = useState(null)
 

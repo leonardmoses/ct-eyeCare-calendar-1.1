@@ -6,6 +6,7 @@ import Year from './components/JS/Year';
 import axios from 'axios';
 import Modal from './components/Modal';
 import Request from './components/Request'
+import {URL} from './components/JS/URLS'
 
 
 
@@ -15,12 +16,11 @@ function App() {
   const [isOpen, setIsOpen] = useState(false)
   // #endregion
 
-  
   return (
 
     <Layout>
       <div className="App">
-      <Request/>
+      <Request URL={URL}/>
 
         <div className="calContainer">
 
@@ -31,7 +31,7 @@ function App() {
           
           <div className="button_wrapper_style">
             <button onClick={() => setIsOpen(true)}>Add Event</button>
-            <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+            <Modal open={isOpen} onClose={() => setIsOpen(false)} URL={URL}>
             </Modal>
           </div>
 
@@ -48,7 +48,7 @@ function App() {
           <div className="calendar">
 
             <div className="julianDays">
-              <JulianDays/>
+              <JulianDays URL={URL}/>
             </div>
 
           </div>

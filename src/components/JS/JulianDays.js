@@ -1,7 +1,8 @@
 import React, {useState, useEffect, useRef} from "react";
 import Year from "./Year";
+import { currentDate, firstDayOfYear, dec1PrevYear, Feb1NextYear, Jan31NextYear, totalYearDays, dec1Padding, Jan31Padding, year, isLeapYear, leapDay} from "./SetDate";
 
-const JulianDays = () => {
+const JulianDays = (props) => {
 
     // // Testing changing the days when changing the years 
     // let year = Year().props.children.props.children[1].props.children;
@@ -17,10 +18,13 @@ const JulianDays = () => {
     let dec1PrevYear = new Date(currentDate.getFullYear(), -1)
     let Feb1NextYear = new Date(currentDate.getFullYear(), +13);
     let Jan31NextYear = Feb1NextYear.getDay()-1;
+
     let totalYearDays = 365;
+    
     let dec1Padding = dec1PrevYear.getDay()
     let Jan31Padding = 6-Jan31NextYear;
     let year = currentDate.getFullYear()
+
     let isLeapYear = false;
     let leapDay = 28
 
@@ -222,6 +226,13 @@ function LeapYearCheck() {
     // #endregion Generating Days
 
 
+    
+    const [events, setEvents] = useState(null)
+
+    // console.log(props.URL)
+
+
+
     return ( 
         <div className="julianDaysComponent"> 
 
@@ -241,8 +252,7 @@ function LeapYearCheck() {
                     </div>
                 )
             })}
-    
-    
+
             {currentYearDays.map((day, index) => {
                 return(
                     <div key={index} className="current-year-days">

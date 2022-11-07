@@ -3,20 +3,9 @@ import axios from 'axios';
 
 
 
-const Request = () => {
+const Request = (props) => {
 
-  // #region URLS
-  // const URL = `https://reqres.in/api/users`
-  // const URL = 'https://reqres.in/api/users/2'
-  // const URL = "https://contrivia-backend.herokuapp.com/trivia";
-  // const URL = 'https://see-care-php-7-4-kevincranmer180966.codeanyapp.com/see-care-php-7.4/staff/calendar/querypage.php'
-  // const URL = 'https://see-care.com/caljsontest.php'
-  // const URL = 'https://date.nager.at/api/v2/publicholidays/2020/GB'
-  // const URL = 'http://localhost:4000/publicholidays/2020/GB'
-  // const URL = 'http://localhost:4000/see-care-php-7.4/staff/calendar/querypage.php'
-  const URL = 'https://6350235ddf22c2af7b64a794.mockapi.io/api/v1/events'
-  // const URL2 = 'https://6350235ddf22c2af7b64a794.mockapi.io/api/v1/events'
-// #endregion
+
 
     const [events, setEvents] = useState(null)
 
@@ -25,9 +14,9 @@ const Request = () => {
 
     const fetchData = async () => {
       try {
-        const response = await axios(URL);
+        const response = await axios(props.URL);
         setEvents(response.data)
-        console.log(events)
+        // console.log(events)
 
       } catch (error) {
         console.log(error.response);
@@ -41,13 +30,21 @@ const Request = () => {
       fetchData();
     }, []);
 
+    const allEvents = {
+      events
+    }
+
+    console.log(events)
+
         if(events) {
           return (
 
             <div>
-              <h1>{`${events[0].monthCount}`}</h1>
-              <h1>{events[0].month}</h1>
-              <h1>{events[0].julianCount}</h1>
+              <h1>{`${events[0].eventName}`}</h1>
+              <h1>{events[0].startTime}</h1>
+              <h1>{events[0].endTime}</h1>
+              <h1>{events[0].participants}</h1>
+              <h1>{events[0].description}</h1>
             </div>
 
           )
