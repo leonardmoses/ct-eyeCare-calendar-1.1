@@ -1,34 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios, { Axios } from 'axios';
-import {URL} from './JS/URLS'
+import {URL} from './JS/URLS';
+import { currentDateTime } from "./JS/Snippets";
 
 
 
 const Modal = ({ open, children, onClose }) => {
-    
-    // Conditional Statement to make 0 format into 00 format.
 
-    let date00 = ''
-    if (new Date().getDate() <= 9) {
-      date00 = `0${new Date().getDate()}`;
 
-    } else {
-      date00 = (new Date().getDate());
-    }
-
-    let date = `${new Date().getFullYear()}-${new Date().getMonth()+1}-${date00}`
-    let time = `${new Date().getHours()}:${new Date().getMinutes()}`;
-    let currentDateTime = `${date}T${time}`
-
-    console.log(currentDateTime)
-
-    const [events, setEvents] = useState(null)
+    let [events, setEvents] = useState('')
 
     const [eventName, setEventName] = useState('')
     const [startTime, setStartTime] = useState(currentDateTime)
     const [endTime, setEndTime] = useState(0)
     const [participants, setParticipants] = useState([])
     const [description, setDescription] = useState('')
+    const [julianDay, setJulianDay] = useState('')
+
+
 
     // const [event, setEvent] = useState({
     //     eventname: '',
@@ -65,6 +54,24 @@ const Modal = ({ open, children, onClose }) => {
 
         }).then(res => console.log('Posting Data', res)).catch(err => console.log(err))
     }
+
+
+    console.log(events[0])
+
+
+
+    // for (let i=0; i<events.length; i++) {
+    //   newlist.push(events)
+    // }
+    
+    
+
+    console.log(startTime.substring(8,10)+ startTime.substring(5,7))
+    console.log(startTime.substring(11,13)+ startTime.substring(14,16))
+    // console.log(endTime.substring(11,13)+ endTime.substring(14,16))
+
+    console.log(`julianDay: `)
+    console.log(julianDay)
 
     if (!open) return null
 

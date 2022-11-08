@@ -34,7 +34,9 @@ const Request = (props) => {
       events
     }
 
-    console.log(events)
+    // console.log(events)
+
+    
 
         if(events) {
           return (
