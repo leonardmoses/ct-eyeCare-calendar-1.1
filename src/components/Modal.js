@@ -9,6 +9,7 @@ const Modal = ({ open, children, onClose }) => {
 
 
     let [events, setEvents] = useState('')
+    const[startTimeAPI, setStartTimeAPI] = useState('')
 
     const [eventName, setEventName] = useState('')
     const [startTime, setStartTime] = useState(currentDateTime)
@@ -38,6 +39,7 @@ const Modal = ({ open, children, onClose }) => {
         axios.get(URL)
         .then(response => {
           setEvents(response.data)
+          // setStartTimeAPI(response.data[1].startTime)
             // console.log(events)
         })
     }, [URL])
@@ -56,8 +58,10 @@ const Modal = ({ open, children, onClose }) => {
     }
 
 
-    console.log(events[0])
+    // console.log(startTimeAPI)
 
+    // "?." optional chaining operator. Removes the error of an undefined. And instead just returns undefined.
+    console.log(events[0]?.endTime)
 
 
     // for (let i=0; i<events.length; i++) {
@@ -66,12 +70,12 @@ const Modal = ({ open, children, onClose }) => {
     
     
 
-    console.log(startTime.substring(8,10)+ startTime.substring(5,7))
-    console.log(startTime.substring(11,13)+ startTime.substring(14,16))
+    // console.log(startTime.substring(5,7)+ startTime.substring(8,10))
+    // console.log(startTime.substring(11,13)+ startTime.substring(14,16))
     // console.log(endTime.substring(11,13)+ endTime.substring(14,16))
 
-    console.log(`julianDay: `)
-    console.log(julianDay)
+    // console.log(`julianDay: `)
+    // console.log(julianDay)
 
     if (!open) return null
 
