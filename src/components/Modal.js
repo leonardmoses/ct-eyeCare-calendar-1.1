@@ -9,7 +9,6 @@ const Modal = ({ open, children, onClose }) => {
 
 
     let [events, setEvents] = useState('')
-    const[startTimeAPI, setStartTimeAPI] = useState('')
 
     const [eventName, setEventName] = useState('')
     const [startTime, setStartTime] = useState(currentDateTime)
@@ -58,10 +57,65 @@ const Modal = ({ open, children, onClose }) => {
     }
 
 
-    // console.log(startTimeAPI)
-
     // "?." optional chaining operator. Removes the error of an undefined. And instead just returns undefined.
-    console.log(events[0]?.endTime)
+    // console.log(events[0]?.eventName)
+    // console.log(events.length)
+
+    const allEvents = [];
+    for (let i=0; i<events.length; i++) {
+      allEvents.push(events[i].eventName)
+    }
+    // console.log(allEvents)
+
+
+    const JulianDayConverter = {
+      1: 31,
+      2: 28,
+      3: 31,
+      4: 30,
+      5: 31,
+      6: 30,
+      7: 31,
+      8: 31,
+      9: 30,
+      10: 31,
+      11: 30,
+      12: 31
+    }
+
+    const JulianDayConverterLeap = {
+      1: 31,
+      2: 29,
+      3: 31,
+      4: 30,
+      5: 31,
+      6: 30,
+      7: 31,
+      8: 31,
+      9: 30,
+      10: 31,
+      11: 30,
+      12: 31
+    }
+      
+
+    let convertToJulian = Object.keys(JulianDayConverter)
+    
+
+    // console.log(convertToJulian)
+
+    // for (let i=0; i<JulianDayConverter.length; i++) {
+
+    // }
+
+    // console.log(Object.keys(JulianDayConverter))
+    // console.log(JulianDayConverter[1])
+    
+    // convertToJulian = events[0]?.startTime
+
+  
+
+   
 
 
     // for (let i=0; i<events.length; i++) {

@@ -42,11 +42,7 @@ const Request = (props) => {
           return (
 
             <div>
-              <h1>{`${events[0].eventName}`}</h1>
-              <h1>{events[0].startTime}</h1>
-              <h1>{events[0].endTime}</h1>
-              <h1>{events[0].participants}</h1>
-              <h1>{events[0].description}</h1>
+
             </div>
 
           )

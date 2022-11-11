@@ -166,6 +166,7 @@ html {
 
                                 .prev-year-days, .current-year-days, .next-year-days{
                                     background-color: $tertiary3;
+                                    // background-color: blue;
                                     color: $tertiary5;
                                     transition: background-color 0.2s;
                                     position: relative;
@@ -187,6 +188,20 @@ html {
                                         // background-color: blue;
                                         margin-left: auto;
                                         display: flex;
+                                    }
+
+                                    .eventDisplay {
+                                        background-color: $tertiary1;
+                                        // background-color: pink;
+                                        color: $tertiary5;
+                                        font-size: 14px;
+                                        border-radius: 3px;
+                                        height: fit-content;
+                                        width: 100%;
+                                        text-align: center;
+                                        margin: 0 3px;
+                                        box-shadow: 1px 2px 9px $tertiary5;
+                       
                                     }
 
                                 }
