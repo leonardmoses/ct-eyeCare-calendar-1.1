@@ -120,10 +120,24 @@ const JulianDays = (props) => {
         // takes event's julian day and adds it as a new object property to event
         events[i].endTimeJulianDay = endTimeJulianDay
 
-        // console.log(endTimeJulianDay)
+        
+
+
     }
 
-    // console.log(events)
+    // Creates a new event property, dateRangeJulian and pushes all the range of the start to end dates into it
+    for (let i=0; i<events.length; i++) {
+
+        events[i].dateRangeJulian = []
+        events[i].dateRangeJulianLength = events[i].endTimeJulianDay - events[i].startTimeJulianDay
+
+        for (let j=0; j<=events[i].dateRangeJulianLength; j++) {
+            events[i].dateRangeJulian.push(events[i].startTimeJulianDay++)
+        }
+    }
+
+
+    console.log(events)
 
 
     return ( 
@@ -152,7 +166,8 @@ const JulianDays = (props) => {
                 
                 // loop through all the events in the API
                 for (let i=0; i<=events.length; i++) {
-                    
+
+
                     // If both Julian days match
                     if (events[i]?.startTimeJulianDay == day.julianCount) {
                         // push event name into the day's empty array 
@@ -167,7 +182,9 @@ const JulianDays = (props) => {
                         // do nothing
                     }
                 };
-                console.log(day)
+
+                // console.log(events)
+
                 return(
                     <div key={index} className="current-year-days">
                         <h6 className="julianCount">({day.julianCount})</h6>
