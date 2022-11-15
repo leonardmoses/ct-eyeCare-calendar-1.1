@@ -161,22 +161,16 @@ const JulianDays = (props) => {
             })}
 
             {currentYearDays.map((day, index) => {
-                // Ror each day displayed, create a new object property of an empty array
+                // For each day displayed, create a new object property of an empty array
                 day.eventDisplay = []
                 
                 // loop through all the events in the API
                 for (let i=0; i<=events.length; i++) {
 
-
-                    // If both Julian days match
-                    if (events[i]?.startTimeJulianDay == day.julianCount) {
+                    // If the 2 julian days match. The Day's julian count is wihtin the array of the events julinan range (start date to end date)
+                    if ( events[i]?.dateRangeJulian.includes(day.julianCount) ) {
                         // push event name into the day's empty array 
                         day.eventDisplay.push(events[i]?.eventName)
-                        
-                        
-                        // for (let i=0; i<day.eventDisplay.length; i++) {
-                            
-                        // }
 
                     } else {
                         // do nothing
