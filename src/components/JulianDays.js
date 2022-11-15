@@ -137,7 +137,7 @@ const JulianDays = (props) => {
     }
 
 
-    console.log(events)
+    // console.log(events)
 
 
     return ( 
@@ -162,22 +162,22 @@ const JulianDays = (props) => {
 
             {currentYearDays.map((day, index) => {
                 // For each day displayed, create a new object property of an empty array
-                day.eventDisplay = []
-                
+                day.event = []
+
                 // loop through all the events in the API
                 for (let i=0; i<=events.length; i++) {
 
                     // If the 2 julian days match. The Day's julian count is wihtin the array of the events julinan range (start date to end date)
                     if ( events[i]?.dateRangeJulian.includes(day.julianCount) ) {
                         // push event name into the day's empty array 
-                        day.eventDisplay.push(events[i]?.eventName)
+                        day.event.push(events[i])
 
                     } else {
                         // do nothing
                     }
                 };
 
-                // console.log(events)
+                // console.log(day)
 
                 return(
                     <div key={index} className="current-year-days">
@@ -188,11 +188,21 @@ const JulianDays = (props) => {
                             <h6>{day.monthCount}</h6>
                         </div>
                         
-                        <div className="eventDisplay">
+                        <div className="allEventsInDay">
                           
-                            <div>
-                                {day.eventDisplay}
-                            </div>
+                            {day.event.map( (event , index)  => {
+
+                                return (
+                                    <div key={index} className="eventName">
+                                        { event.eventName }
+                                    </div>
+                                )
+
+                            }
+                            )}
+
+
+
                         </div>
 
                     </div>
