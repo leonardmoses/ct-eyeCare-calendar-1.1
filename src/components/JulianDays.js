@@ -1,9 +1,8 @@
 import React, {useState, useEffect, useRef, createElement} from "react";
 import Year from "./Year";
-
 import { currentDate, firstDayOfYear, dec1PrevYear, Feb1NextYear, Jan31NextYear, totalYearDays, dec1Padding, Jan31Padding, year, isLeapYear, leapDay, LeapYearCheck} from "./JS/SetDate";
-
-import {dec1PrevYearDays, currentYearDays, Jan31NextYearDays, dec1paddingInitial, jan31paddingInitial, dayProperty} from './JS/GeneratingDays'
+import {dec1PrevYearDays, currentYearDays, Jan31NextYearDays, dec1paddingInitial, jan31paddingInitial, dayProperty} from './JS/GeneratingDays';
+import {JulianConverterKey, JulianConverterKeyLeap} from './JS/Snippets';
 import axios from "axios";
 
 const JulianDays = (props) => {
@@ -30,40 +29,6 @@ const JulianDays = (props) => {
     }, []);
 
 
-
-    const JulianConverterKey = {
-        1: 0,
-        2: 31,
-        3: 59,
-        4: 90,
-        5: 120,
-        6: 151,
-        7: 181,
-        8: 212,
-        9: 243,
-        10: 273,
-        11: 304,
-        12: 334
-      }
-  
-      const JulianConverterKeyLeap = {
-        1: 0,
-        2: 31,
-        3: 60,
-        4: 91,
-        5: 121,
-        6: 152,
-        7: 182,
-        8: 213,
-        9: 244,
-        10: 274,
-        11: 305,
-        12: 335
-      }
-
-
-
-    let startTimeJulianDays = []
     let startTimeJulianDay = ''
     let startTimeMonth = ''
     let startTimeDay = ''
@@ -119,9 +84,6 @@ const JulianDays = (props) => {
 
         // takes event's julian day and adds it as a new object property to event
         events[i].endTimeJulianDay = endTimeJulianDay
-
-        
-
 
     }
 
@@ -197,14 +159,9 @@ const JulianDays = (props) => {
                                         { event.eventName }
                                     </div>
                                 )
-
-                            }
-                            )}
-
-
+                            })}
 
                         </div>
-
                     </div>
                 )
             })}
