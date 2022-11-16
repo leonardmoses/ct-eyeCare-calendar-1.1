@@ -16,11 +16,29 @@ function App() {
   const [isOpen, setIsOpen] = useState(false)
   // #endregion
 
+  // #region GET Request
+  const [events, setEvents] = useState('')
+
+  const fetchData = async () => {
+      try {
+          const response = await axios(URL);
+          setEvents(response.data)
+      } catch (error) {
+          console.log(error.response)
+      }
+  };
+  
+
+  useEffect(() => {
+    fetchData();
+}, []);
+  // #endregion GET request
+
   return (
 
     <Layout>
       <div className="App">
-      <Request URL={URL}/>
+      <Request URL={URL} events={events}/>
 
         <div className="calContainer">
 
@@ -48,7 +66,7 @@ function App() {
           <div className="calendar">
 
             <div className="julianDays">
-              <JulianDays URL={URL}/>
+              <JulianDays URL={URL} events={events}/>
             </div>
 
           </div>

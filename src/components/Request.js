@@ -5,30 +5,10 @@ import axios from 'axios';
 
 const Request = (props) => {
 
-
-
-    const [events, setEvents] = useState(null)
-
+    let events = props.events
+    
     let content = null
     let data = null
-
-    const fetchData = async () => {
-      try {
-        const response = await axios(props.URL);
-        setEvents(response.data)
-        // console.log(events)
-
-      } catch (error) {
-        console.log(error.response);
-      }
-
-    };
-
-    
-
-    useEffect(() => {
-      fetchData();
-    }, []);
 
     const allEvents = {
       events
@@ -36,9 +16,7 @@ const Request = (props) => {
 
     // console.log(events)
 
-    
-
-        if(events) {
+        if(props.events) {
           return (
 
             <div>

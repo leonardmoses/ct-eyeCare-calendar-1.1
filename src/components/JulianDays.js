@@ -12,32 +12,15 @@ const JulianDays = (props) => {
     // console.log(year)
     // console.log(new Date(`Jan 1, ${year}`))
 
-    
-    const [events, setEvents] = useState('')
-
-    const fetchData = async () => {
-        try {
-            const response = await axios(props.URL);
-            setEvents(response.data)
-        } catch (error) {
-            console.log(error.response)
-        }
-    };
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-
     let startTimeJulianDay = ''
     let startTimeMonth = ''
     let startTimeDay = ''
     let startTimeMonthToJulianDayPrev = ''
 
     // Adds julian days as new object property to events
-    for (let i=0; i<events.length; i++) {
+    for (let i=0; i<props.events.length; i++) {
         //gets just the month number
-        startTimeMonth = events[i].startTime.substring(5,7);
+        startTimeMonth = props.events[i].startTime.substring(5,7);
 
         // Checks for leap year and uses appropriate julianConverterKey
         if (!isLeapYear) {
@@ -48,13 +31,13 @@ const JulianDays = (props) => {
         }
 
         //gets just the day number of the month
-        startTimeDay = events[i].startTime.substring(8,10);
+        startTimeDay = props.events[i].startTime.substring(8,10);
 
         // takes last day of prev month and adds event's day of month, resulting in event's julian day
         startTimeJulianDay = parseInt(startTimeMonthToJulianDayPrev) + parseInt(startTimeDay)
 
         // takes event's julian day and adds it as a new object property to event 
-        events[i].startTimeJulianDay = startTimeJulianDay
+        props.events[i].startTimeJulianDay = startTimeJulianDay
 
         // console.log(startTimeJulianDay)
     }
@@ -64,9 +47,9 @@ const JulianDays = (props) => {
     let endTimeDay = ''
     let endTimeMonthToJulianDayPrev = ''
 
-    for (let i=0; i<events.length; i++) {
+    for (let i=0; i<props.events.length; i++) {
         //gets just the month number
-        endTimeMonth = events[i].endTime.substring(5,7);
+        endTimeMonth = props.events[i].endTime.substring(5,7);
 
         // Checks for leap year and uses appropriate julianConverterKey
         if (!isLeapYear) {
@@ -77,24 +60,24 @@ const JulianDays = (props) => {
         }
 
         //gets just the day number of the month
-        endTimeDay = events[i].endTime.substring(8,10);
+        endTimeDay = props.events[i].endTime.substring(8,10);
 
         // takes last day of prev month and adds event's day of month
         endTimeJulianDay = parseInt(endTimeMonthToJulianDayPrev) + parseInt(endTimeDay)
 
         // takes event's julian day and adds it as a new object property to event
-        events[i].endTimeJulianDay = endTimeJulianDay
+        props.events[i].endTimeJulianDay = endTimeJulianDay
 
     }
 
     // Creates a new event property, dateRangeJulian and pushes all the range of the start to end dates into it
-    for (let i=0; i<events.length; i++) {
+    for (let i=0; i<props.events.length; i++) {
 
-        events[i].dateRangeJulian = []
-        events[i].dateRangeJulianLength = events[i].endTimeJulianDay - events[i].startTimeJulianDay
+        props.events[i].dateRangeJulian = []
+        props.events[i].dateRangeJulianLength = props.events[i].endTimeJulianDay - props.events[i].startTimeJulianDay
 
-        for (let j=0; j<=events[i].dateRangeJulianLength; j++) {
-            events[i].dateRangeJulian.push(events[i].startTimeJulianDay++)
+        for (let j=0; j<=props.events[i].dateRangeJulianLength; j++) {
+            props.events[i].dateRangeJulian.push(props.events[i].startTimeJulianDay++)
         }
     }
 
@@ -127,12 +110,12 @@ const JulianDays = (props) => {
                 day.event = []
 
                 // loop through all the events in the API
-                for (let i=0; i<=events.length; i++) {
+                for (let i=0; i<=props.events.length; i++) {
 
                     // If the 2 julian days match. The Day's julian count is wihtin the array of the events julinan range (start date to end date)
-                    if ( events[i]?.dateRangeJulian.includes(day.julianCount) ) {
+                    if ( props.events[i]?.dateRangeJulian.includes(day.julianCount) ) {
                         // push event name into the day's empty array 
-                        day.event.push(events[i])
+                        day.event.push(props.events[i])
 
                     } else {
                         // do nothing
