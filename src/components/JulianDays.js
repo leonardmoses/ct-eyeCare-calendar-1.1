@@ -7,12 +7,6 @@ import axios from "axios";
 
 const JulianDays = (props) => {
 
-    // // Testing changing the days when changing the years 
-    // let year = Year().props.children.props.children[1].props.children;
-    // console.log(year)
-    // console.log(new Date(`Jan 1, ${year}`))
-
-
     // #region Adds julian days as new object property to events
     
     const addJulianDaysObjectProperty = () => {
@@ -75,7 +69,7 @@ const JulianDays = (props) => {
     addJulianDaysObjectProperty()
     // #endregion
 
-    // Creates a new event property, dateRangeJulian and pushes all the range of the start to end dates into it
+    // #region Creates a new event property, dateRangeJulian and pushes all the range of the start to end dates into it
     for (let i=0; i<props.events.length; i++) {
 
         props.events[i].dateRangeJulian = []
@@ -85,9 +79,42 @@ const JulianDays = (props) => {
             props.events[i].dateRangeJulian.push(props.events[i].startTimeJulianDay++)
         }
     }
-
+    // #endregion
 
     // console.log(events)
+
+    const [event1, setEvent1] = useState([]);
+    const [modalInfo, setModalInfo] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const rowEvents = { 
+        onclick: (row) => {
+            console.log(row);
+            setModalInfo(row);
+            toggleTrueFalse();
+        } 
+    }
+
+    const toggleTrueFalse = () => {
+        setShowModal(handleShow)
+    }
+
+    const modalContent = () => {
+
+        // return (
+
+        // )
+    }
+
+
+
+    // useEffect(() => {
+    //     deleteRequest();
+    // }, []);
 
 
     return ( 
@@ -117,7 +144,7 @@ const JulianDays = (props) => {
                 // loop through all the events in the API
                 for (let i=0; i<=props.events.length; i++) {
 
-                    // If the 2 julian days match. The Day's julian count is wihtin the array of the events julinan range (start date to end date)
+                    // If the 2 julian days match (The Day's julian count is within the array of the events julian range (start date to end date))
                     if ( props.events[i]?.dateRangeJulian.includes(day.julianCount) ) {
                         // push event name into the day's empty array 
                         day.event.push(props.events[i])
@@ -141,12 +168,23 @@ const JulianDays = (props) => {
                         <div className="allEventsInDay">
                           
                             {day.event.map( (event , index)  => {
+                                const showTest = () => {
+                                    console.log(event.description)
+                            }
 
-                                return (
-                                    <div key={index} className="eventName">
-                                        { event.eventName }
-                                    </div>
-                                )
+                            const deleteRequest = (id, e) => {
+                                e.preventDefault();
+                                id = day.event[0].ID
+                                axios.delete(`${props.URL}/${id}`)
+                                .then(res => console.log('Deleted Event!', res)).catch(err => console.log(err))
+                            }
+
+                            return (
+                                <div key={index} className="eventName" onClick={showTest}>
+                                    { event.eventName }
+                                    <button onClick={(e) => deleteRequest(props.events.id, e)}>delete</button>
+                                </div>
+                            )
                             })}
 
                         </div>
