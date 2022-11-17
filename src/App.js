@@ -7,6 +7,7 @@ import axios from 'axios';
 import Modal from './components/Modal';
 import Request from './components/Request'
 import {URL} from './components/JS/URLS'
+import MainModal from './components/MainModal';
 
 
 
@@ -46,12 +47,14 @@ function App() {
               <div className="selectedMonth"><h2>Test Month</h2></div>
               <div className="selectedDate"><h4>Test Date</h4></div>
           </div>
-          
+          {/* 
           <div className="button_wrapper_style">
             <button onClick={() => setIsOpen(true)}>Add Event</button>
             <Modal open={isOpen} onClose={() => setIsOpen(false)} URL={URL}>
             </Modal>
           </div>
+          */}
+          <MainModal/>
 
           <div className="daysOfWeek">
               <div className="weekdays">Sun</div>

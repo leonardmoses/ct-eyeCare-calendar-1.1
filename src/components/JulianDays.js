@@ -4,6 +4,7 @@ import { currentDate, firstDayOfYear, dec1PrevYear, Feb1NextYear, Jan31NextYear,
 import {dec1PrevYearDays, currentYearDays, Jan31NextYearDays, dec1paddingInitial, jan31paddingInitial, dayProperty} from './JS/GeneratingDays';
 import {JulianConverterKey, JulianConverterKeyLeap} from './JS/Snippets';
 import axios from "axios";
+import EventModal from "./EventModal";
 
 const JulianDays = (props) => {
 
@@ -181,8 +182,20 @@ const JulianDays = (props) => {
 
                             return (
                                 <div key={index} className="eventName" onClick={showTest}>
-                                    { event.eventName }
+                                    
+                                    <EventModal 
+                                    event={day.event[0]}
+                                    URL={props.URL}
+                                    eventName={day.event[0].eventName} 
+                                    id={day.event[0].ID}
+                                    eventStart={day.event[0].startTime}
+                                    eventEnd={day.event[0].endTime}
+                                    eventParticipants={day.event[0].participants}
+                                    eventDescription={day.event[0].description}
+                                    />
+                                    {/* 
                                     <button onClick={(e) => deleteRequest(props.events.id, e)}>delete</button>
+                                    */} 
                                 </div>
                             )
                             })}
