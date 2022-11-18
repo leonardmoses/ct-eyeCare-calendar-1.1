@@ -10,30 +10,20 @@ import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
 
 const JulianDays = (props) => {
 
-    const Jan = useRef(null)
-    const Feb = useRef(null)
-    const Mar = useRef(null)
-    const Apr = useRef(null)
-    const May = useRef(null)
-    const Jun = useRef(null)
-    const Jul = useRef(null)
-    const Aug = useRef(null)
-    const Sep = useRef(null)
-    const Oct = useRef(null)
-    const Nov = useRef(null)
-    const Dec = useRef(null)
-
-    const services = useRef(null);
-
-    const scrollToSection = (elementRef) => {
-        window.scrollTo({
-            top: 8000,
-            behavior: 'smooth'
-        })
-    }
+    // const Jan = useRef(null)
+    // const Feb = useRef(null)
+    // const Mar = useRef(null)
+    // const Apr = useRef(null)
+    // const May = useRef(null)
+    // const Jun = useRef(null)
+    // const Jul = useRef(null)
+    // const Aug = useRef(null)
+    // const Sep = useRef(null)
+    // const Oct = useRef(null)
+    // const Nov = useRef(null)
+    // const Dec = useRef(null)
 
     // #region Adds julian days as new object property to events
-    
     const addJulianDaysObjectProperty = () => {
         let startTimeJulianDay = ''
         let startTimeMonth = ''
@@ -90,7 +80,6 @@ const JulianDays = (props) => {
             props.events[i].endTimeJulianDay = endTimeJulianDay
         }
     }
-    
     addJulianDaysObjectProperty()
     // #endregion
 
@@ -105,46 +94,12 @@ const JulianDays = (props) => {
         }
     }
     // #endregion
-
     // console.log(events)
 
-    const [event1, setEvent1] = useState([]);
-    const [modalInfo, setModalInfo] = useState([]);
-    const [showModal, setShowModal] = useState(false);
 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    const rowEvents = { 
-        onclick: (row) => {
-            console.log(row);
-            setModalInfo(row);
-            toggleTrueFalse();
-        } 
-    }
-
-    const toggleTrueFalse = () => {
-        setShowModal(handleShow)
-    }
-
-    const modalContent = () => {
-
-        // return (
-
-        // )
-    }
-
-
-
-    // useEffect(() => {
-    //     deleteRequest();
-    // }, []);
-
-
-    return ( 
+    return (  // Main JulianDays.js Return
         
-        <div className="julianDaysComponent"> 
+        <> 
 
             {dec1paddingInitial.map((day, index) => {
                 return (
@@ -178,7 +133,6 @@ const JulianDays = (props) => {
                         // do nothing
                     }
                 };
-
                 // console.log(day)
 
                 return(
@@ -189,24 +143,18 @@ const JulianDays = (props) => {
                             <h6>{day.monthShort}</h6>
                             <h6>{day.monthCount}</h6>
                         </div>
-                        
+
                         <div className="allEventsInDay">
-                          
-                            {day.event.map( (event , index)  => {
+
+                            {day.event.map((event , index)  => {
                                 const showTest = () => {
+                                    console.log(event.eventName)
                                     console.log(event.description)
-                            }
-                            
-                            const deleteRequest = (id, e) => {
-                                e.preventDefault();
-                                id = day.event[0].ID
-                                axios.delete(`${props.URL}/${id}`)
-                                .then(res => console.log('Deleted Event!', res)).catch(err => console.log(err))
                             }
 
                             return (
                                 <div key={index} className="eventName" onClick={showTest}>
-                                    
+
                                     <EventModal 
                                     event={day.event[0]}
                                     URL={props.URL}
@@ -217,9 +165,7 @@ const JulianDays = (props) => {
                                     eventParticipants={day.event[0].participants}
                                     eventDescription={day.event[0].description}
                                     />
-                                    {/* 
-                                    <button onClick={(e) => deleteRequest(props.events.id, e)}>delete</button>
-                                    */} 
+
                                 </div>
                             )
                             })}
@@ -244,16 +190,11 @@ const JulianDays = (props) => {
                     </div>
                 )
             })}
-            {/* 
-            <div ref={Jan} id="gridWrapper">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa ex quis nemo recusandae doloremque esse dolores reprehenderit laboriosam, nam eum. Consequatur explicabo pariatur, veniam nesciunt aperiam, repellat iusto soluta sapiente, temporibus ab similique. Iste repudiandae qui dignissimos voluptatem iusto? Debitis repellendus voluptatem iusto sequi, consequatur deleniti illo tempore et possimus.
-            </div>
-            */}
-        </div> 
 
-     ); //Close for Component's Main  Return
+        </> 
 
-     
+     ); // Close Main JulianDays.js Return
+
 } // Close for Entire Component Function
  
 export default JulianDays;

@@ -2,229 +2,136 @@
 
 
 html {
-    background-color: rgb(40, 40, 40);
-    // height: 100vh;
-    
+
     body {
         width: 100%;
+        // background-color: rgb(106, 106, 106);
+        background-color: $primary2;
         // height: 100vh;
-        background-color: rgb(106, 106, 106);
-        // display: flex;
-        // flex-wrap: wrap;
 
         .App {
-            background-color: $primary5;
+            // background-color: $primary2;
             // width: 100%;
-            // height: 80vh;  // windowed view
             display: flex;
             flex-wrap: wrap;
-            // border: solid black 1px;
 
             .calContainer {
                 // background-color: darkviolet;
+                                // height: 100%;
                 width: 95%;
-                // height: 100%;
                 margin: 0 auto;
-                // padding-bottom: 10px;
-                // background-color: black;
-                // color: rgb(199, 199, 199);
-                // display: flex;
-                // flex-wrap: wrap;
-                justify-content: center;
+                // justify-content: center;
                 // align-items: center;
                 box-shadow: 10px 10px 40px 5px #7b5c9768;
+                // border: $primary5 solid 1px;
                 border-radius: 8px;
-                // border: $tertiaryBlack solid 1px;
+                box-shadow: 0px 0px 12px -1px $primaryBlack;
 
-                .calHeader {
-                    // background-color: $secondary5;
-                    width: 100%;
-                    // height: 80px; //windowed view
-                    
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    // border-bottom: solid 1px black;
-                    // border-top-left-radius: 10px;
-                    // border-top-right-radius: 10px;
 
-                    .selectedMonth {
-                        // @include Titleh2;
-                        color: $secondary5;
-                        font-size: 40px;
-                        font-weight: 350;
-                    }
 
-                    .selectedDate {
-                        // @include Titleh2;
-                        color: $secondary5;
-                        font-size: 16px;
-                        word-spacing: 2px;
-                        // margin: 3px 0;
-                    }
-                }
+                .julianDaysComponent {
+                        // width: 100%;
+                        // height: 100%;
+                        background-color: $primary4;
+                        // background-color: blue;
+                        display: flex; //Incharge of Days grid
+                        flex-wrap: wrap;
+                        padding-top: 2px;
 
-                .button_wrapper_style {
-                    position: 'relative';
-                    z-index: 1;
-                    
-                    .modal_Container {
-                        
-                        .modal_Overlay {
-                            position: fixed;
-                            top: 0;
-                            left: 0;
-                            right: 0;
-                            bottom: 0;
-                            background-color: rgba(0, 0, 0, 0.671);
-                            z-index: 1000;
+                        .prev-year-padding, .prev-year-days, .current-year-days, .next-year-days, .next-year-padding {
+                            background-color: $tertiary3;
+                            border-width: 0.5em;
+                            clip-path: polygon(1% 1%, 99% 1%, 99% 99%, 1% 99%);
+                            width: calc(100% / 7);
+                            height: calc(100vh/7);
+                            color: black;
+                            border: solid $primary5 1px;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            transition: background-color 0.2s;
 
-                            .modal {
-                                position: fixed;
-                                top: 50%;
-                                left: 50%;
-                                transform: translate(-50%, -50%);
-                                background-color: lightblue;
-                                padding: 50px;
-                                z-index: 1000;
-                                border-radius: 15px;
-                            }
+                            @include iphone12Pro {
+                                border-radius: 8px;
+                            };
+
+                            @include iphoneSE {
+                                border-radius: 6px;
+                            };
                         }
 
-                    }
+                        .prev-year-padding, .next-year-padding {
+                            background-color: rgb(40, 40, 40);
+                            color: rgba(0, 0, 0, 0.0);
+                            transition: background-color 0.2s;
+                        }
 
-                }
+                        .prev-year-days, .current-year-days, .next-year-days{
+                            background-color: $tertiary3;
+                            // background-color: blue;
+                            color: $tertiary5;
+                            transition: background-color 0.2s;
+                            position: relative;
+                            display: flex;
+                            flex-wrap: wrap;
+                            // width: 100%;
 
+                            h6 {
+                                font-size: 14px;
+                                padding: 3px 3px 0 3px;
+                            }
 
+                            .julianCount {
+                                // background-color: green;
+                                margin-right: auto;
+                            }
 
-
-                    .calendar {
-                        // width: calc(100%);
-                        // height: 70vh; 
-                        // background-color: $primary4;
-                        // overflow-y: scroll;
-                        // border-bottom-left-radius: 10px;
-                        // border-bottom-right-radius: 10px;
-                        box-shadow: 0px 0px 12px -1px $primaryBlack;
-
-                        .julianDays {
-
-                            .julianDaysComponent{
-                                // width: 100%;
-                                // height: 100%;
-                                // background-color: $primary5;
+                            .monthCount {
                                 // background-color: blue;
+                                margin-left: auto;
                                 display: flex;
-                                flex-wrap: wrap;
-                                padding:5px 0;
-                                overflow-y:hidden;
+                            }
 
-                                .prev-year-padding, .prev-year-days, .current-year-days, .next-year-days, .next-year-padding {
-                                    background-color: $tertiary3;
-                                    border-width: 0.5em;
-                                    clip-path: polygon(1% 1%, 99% 1%, 99% 99%, 1% 99%);
-                                    width: calc(100% / 7);
-                                    height: calc(100vh/7);
-                                    color: black;
-                                    // border: solid $tertiary5 1px;
-                                    border-radius: 10px;
-                                    cursor: pointer;
+                            .allEventsInDay {
+                                // background-color: pink;
+                                height: fit-content;
+                                // width: 100%;
 
-                                    transition: background-color 0.2s;
-
-                                    // @include iphone12Pro {
-                                    //     border-radius: 8px;
-                                    // };
-
-                                    // @include iphoneSE {
-                                    //     border-radius: 6px;
-                                    // };
-                                }
-
-                                .prev-year-padding, .next-year-padding {
-                                    background-color: rgb(40, 40, 40);
-                                    color: rgba(0, 0, 0, 0.0);
-                                    transition: background-color 0.2s;
-                                }
-
-                                .prev-year-days, .current-year-days, .next-year-days{
-                                    background-color: $tertiary3;
-                                    // background-color: blue;
+                                .eventName {
+                                    background-color: $tertiary1;
+                                    // background-color: pink;
                                     color: $tertiary5;
-                                    transition: background-color 0.2s;
-                                    position: relative;
-                                    display: flex;
-                                    flex-wrap: wrap;
-                                    // width: 100%;
-
-                                    h6 {
-                                        font-size: 14px;
-                                        padding: 3px 3px 0 3px;
-                                    }
-
-                                    .julianCount {
-                                        // background-color: green;
-                                        margin-right: auto;
-                                    }
-
-                                    .monthCount {
-                                        // background-color: blue;
-                                        margin-left: auto;
-                                        display: flex;
-                                    }
-
-                                    .allEventsInDay {
-                                        // background-color: pink;
-                                        height: fit-content;
-                                        // width: 100%;
-
-                                        .eventName {
-                                            background-color: $tertiary1;
-                                            // background-color: pink;
-                                            color: $tertiary5;
-                                            font-size: 14px;
-                                            border-radius: 3px;
-                                            height: fit-content;
-                                            width: 100%;
-                                            text-align: center;
-                                            margin: 0 3px;
-                                            margin-bottom: 5px;
-                                            box-shadow: 1px 2px 3px -1.5px $tertiary5;
-                                        }
-
-                                    }
-
-                                }
-
-                                .prev-year-days, .next-year-days {
-                                    background-color: $tertiary2;
-                                }
-
-                                .prev-year-days:hover , .current-year-days:hover, .prev-year-days:hover, .next-year-days:hover{
-                                    background-color: $tertiary1;
-                                    // border: solid $tertiaryWhite 1px;
-                                    cursor: pointer;
-                                }
-
-                                .prev-year-padding:hover, .next-year-padding:hover {
-                                    background-color: $tertiary1;
-                                    // border: solid $tertiaryWhite 1px;
-                                    cursor: pointer;
-                                    
+                                    font-size: 14px;
+                                    border-radius: 3px;
+                                    height: fit-content;
+                                    width: 100%;
+                                    text-align: center;
+                                    margin: 0 3px;
+                                    margin-bottom: 5px;
+                                    box-shadow: 1px 2px 3px -1.5px $tertiary5;
                                 }
                             }
                         }
-                    }
 
-                div::-webkit-scrollbar {
-                    display: none; /* for Chrome, Safari, and Opera */
+                        .prev-year-days, .next-year-days {
+                            background-color: $tertiary2;
+                        }
+
+                        .prev-year-days:hover , .current-year-days:hover, .prev-year-days:hover, .next-year-days:hover{
+                            background-color: $tertiary1;
+                            // border: solid $tertiaryWhite 1px;
+                            cursor: pointer;
+                        }
+
+                        .prev-year-padding:hover, .next-year-padding:hover {
+                            background-color: $tertiary1;
+                            // border: solid $tertiaryWhite 1px;
+                            cursor: pointer;
+                            
+                        }
+                    
                 }
 
             }
-
         }
-
     }
-
 }

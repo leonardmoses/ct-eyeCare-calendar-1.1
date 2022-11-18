@@ -2,13 +2,8 @@ import React, {useState, useEffect, useInsertionEffect} from 'react';
 import './styles/App.scss';
 import Layout from './components/common/Layout';
 import JulianDays from './components/JulianDays';
-import Year from './components/Year';
 import axios from 'axios';
-import Modal from './components/Modal';
-import Request from './components/Request'
 import {URL} from './components/JS/URLS'
-import MainModal from './components/MainModal';
-import {currentDate} from "./components/JS/SetDate"
 
 
 
@@ -40,31 +35,16 @@ function App() {
 
     <Layout>
       <div className="App">
-      <Request URL={URL} events={events}/>
+
 
         <div className="calContainer">
-
-          <div className="calHeader">
-          
-          </div>
-          {/* 
-          <div className="button_wrapper_style">
-            <button onClick={() => setIsOpen(true)}>Add Event</button>
-            <Modal open={isOpen} onClose={() => setIsOpen(false)} URL={URL}>
-            </Modal>
-          </div>
-          */}
-          
-          
-          <div className="calendar">
-          
-            <div className="julianDays">
-              <JulianDays URL={URL} events={events}/>
-            </div>
-
+        
+          <div className="julianDaysComponent">
+            <JulianDays URL={URL} events={events}/>
           </div>
 
-    </div>
+        </div>
+
       </div>
     </Layout>
 
