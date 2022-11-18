@@ -90,7 +90,7 @@ export default function MainModal(props) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button className='MainModal' variant="primary" onClick={handleShow}>
         Add Event
       </Button>
 

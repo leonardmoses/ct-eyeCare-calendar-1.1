@@ -8,6 +8,7 @@ import Modal from './components/Modal';
 import Request from './components/Request'
 import {URL} from './components/JS/URLS'
 import MainModal from './components/MainModal';
+import {currentDate} from "./components/JS/SetDate"
 
 
 
@@ -44,8 +45,7 @@ function App() {
         <div className="calContainer">
 
           <div className="calHeader">
-              <div className="selectedMonth"><h2>Test Month</h2></div>
-              <div className="selectedDate"><h4>Test Date</h4></div>
+          
           </div>
           {/* 
           <div className="button_wrapper_style">
@@ -54,20 +54,10 @@ function App() {
             </Modal>
           </div>
           */}
-          <MainModal/>
-
-          <div className="daysOfWeek">
-              <div className="weekdays">Sun</div>
-              <div className="weekdays">Mon</div>
-              <div className="weekdays">Tues</div>
-              <div className="weekdays">Wed</div>
-              <div className="weekdays">Thu</div>
-              <div className="weekdays">Fri</div>
-              <div className="weekdays">Sat</div>
-          </div>
-
+          
+          
           <div className="calendar">
-
+          
             <div className="julianDays">
               <JulianDays URL={URL} events={events}/>
             </div>

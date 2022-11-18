@@ -5,8 +5,32 @@ import {dec1PrevYearDays, currentYearDays, Jan31NextYearDays, dec1paddingInitial
 import {JulianConverterKey, JulianConverterKeyLeap} from './JS/Snippets';
 import axios from "axios";
 import EventModal from "./EventModal";
+// import React from 'react';
+import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
 
 const JulianDays = (props) => {
+
+    const Jan = useRef(null)
+    const Feb = useRef(null)
+    const Mar = useRef(null)
+    const Apr = useRef(null)
+    const May = useRef(null)
+    const Jun = useRef(null)
+    const Jul = useRef(null)
+    const Aug = useRef(null)
+    const Sep = useRef(null)
+    const Oct = useRef(null)
+    const Nov = useRef(null)
+    const Dec = useRef(null)
+
+    const services = useRef(null);
+
+    const scrollToSection = (elementRef) => {
+        window.scrollTo({
+            top: 8000,
+            behavior: 'smooth'
+        })
+    }
 
     // #region Adds julian days as new object property to events
     
@@ -119,8 +143,8 @@ const JulianDays = (props) => {
 
 
     return ( 
+        
         <div className="julianDaysComponent"> 
-
 
             {dec1paddingInitial.map((day, index) => {
                 return (
@@ -158,7 +182,7 @@ const JulianDays = (props) => {
                 // console.log(day)
 
                 return(
-                    <div key={index} className="current-year-days">
+                    <div key={index} className="current-year-days" id={day.monthShort}>
                         <h6 className="julianCount">({day.julianCount})</h6>
 
                         <div className="monthCount">
@@ -172,7 +196,7 @@ const JulianDays = (props) => {
                                 const showTest = () => {
                                     console.log(event.description)
                             }
-
+                            
                             const deleteRequest = (id, e) => {
                                 e.preventDefault();
                                 id = day.event[0].ID
@@ -220,7 +244,11 @@ const JulianDays = (props) => {
                     </div>
                 )
             })}
-
+            {/* 
+            <div ref={Jan} id="gridWrapper">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa ex quis nemo recusandae doloremque esse dolores reprehenderit laboriosam, nam eum. Consequatur explicabo pariatur, veniam nesciunt aperiam, repellat iusto soluta sapiente, temporibus ab similique. Iste repudiandae qui dignissimos voluptatem iusto? Debitis repellendus voluptatem iusto sequi, consequatur deleniti illo tempore et possimus.
+            </div>
+            */}
         </div> 
 
      ); //Close for Component's Main  Return

@@ -15,14 +15,14 @@ html {
         .App {
             background-color: $primary5;
             // width: 100%;
-            height: 80vh;
+            // height: 80vh;  // windowed view
             display: flex;
             flex-wrap: wrap;
             // border: solid black 1px;
 
             .calContainer {
                 // background-color: darkviolet;
-                width: 100%;
+                width: 95%;
                 // height: 100%;
                 margin: 0 auto;
                 // padding-bottom: 10px;
@@ -39,7 +39,7 @@ html {
                 .calHeader {
                     // background-color: $secondary5;
                     width: 100%;
-                    height: 80px;
+                    // height: 80px; //windowed view
                     
                     display: flex;
                     flex-direction: column;
@@ -97,32 +97,16 @@ html {
                 }
 
 
-                .daysOfWeek {
-                    // width: 100%;
-                    background-color: $primary2;
-                    display: flex;
-                    // justify-content: space-evenly;
-                    // align-items: center;
-                    border: solid 1px rgba(0, 0, 0, 0.798);
 
-                    .weekdays {
-                        width: calc(100% / 7);
-                        height: 30px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        color: $primaryBlack;
-                        border: solid rgb(66, 73, 67) 1px;
-                    }
-                }
 
                     .calendar {
                         // width: calc(100%);
-                        height: 70vh;
-                        background-color: $primary4;
-                        overflow-y: scroll;
+                        // height: 70vh; 
+                        // background-color: $primary4;
+                        // overflow-y: scroll;
                         // border-bottom-left-radius: 10px;
                         // border-bottom-right-radius: 10px;
+                        box-shadow: 0px 0px 12px -1px $primaryBlack;
 
                         .julianDays {
 
@@ -141,21 +125,21 @@ html {
                                     border-width: 0.5em;
                                     clip-path: polygon(1% 1%, 99% 1%, 99% 99%, 1% 99%);
                                     width: calc(100% / 7);
-                                    height: calc(100vh/7.5);
+                                    height: calc(100vh/7);
                                     color: black;
                                     // border: solid $tertiary5 1px;
-                                    border-radius: 12px;
+                                    border-radius: 10px;
                                     cursor: pointer;
 
                                     transition: background-color 0.2s;
 
-                                    @include iphone12Pro {
-                                        border-radius: 8px;
-                                    };
+                                    // @include iphone12Pro {
+                                    //     border-radius: 8px;
+                                    // };
 
-                                    @include iphoneSE {
-                                        border-radius: 6px;
-                                    };
+                                    // @include iphoneSE {
+                                    //     border-radius: 6px;
+                                    // };
                                 }
 
                                 .prev-year-padding, .next-year-padding {

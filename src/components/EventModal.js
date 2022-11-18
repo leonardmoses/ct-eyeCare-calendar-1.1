@@ -19,7 +19,7 @@ export default function EventModal(props) {
 
     // console.log(`${props.URL}/${props.id}`)
     let id = props.event.ID
-    console.log(id)
+    // console.log(id)
   return (
     <>
       <div variant="primary" onClick={handleShow}>
@@ -45,8 +45,6 @@ export default function EventModal(props) {
             <br/><br/>
             Participants: {props.eventParticipants}
             <br/><br/><br/><br/>
-
-            {console.log(id)}
 
             <Button variant="primary" onClick={(e) => deleteRequest(id, e)}>Delete Event</Button>
 
