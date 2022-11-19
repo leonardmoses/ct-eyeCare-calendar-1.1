@@ -89,27 +89,36 @@ export default function MainModal(props) {
     const handleShow = () => setShow(true);
 
   return (
-    <>
-      <Button className='MainModal' variant="primary" onClick={handleShow}>
+    <div className='MainModalPrimaryReturn'>
+      <Button variant="none" onClick={handleShow}>
         Add Event
       </Button>
 
-      <Modal
+      <Modal className='MainModalInsideTheModal'
         show={show}
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
+        size='md'
+        centered
+        
       >
+  
         <Modal.Header closeButton>
-          <Modal.Title>Add a New Event</Modal.Title>
+        
+          <Modal.Title><h2>Add New Event</h2></Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        
+        <Modal.Body
+          centered
+          bg="primary"
+        >
 
-            <div>
-                <h3>Please all event fields</h3>
+            <div className='ModalBodyContent'>
+                <h3>Please enter all event fields</h3>
                 <br/>
                 <form>
-                    <label>Event Name: </label>
+                    <label>Event Name:  </label>
                     <input
                         type="string"
                         required
@@ -119,7 +128,7 @@ export default function MainModal(props) {
                     />
 
                     <br/>
-                    <label>Start Time: </label>
+                    <label>Start Time:  </label>
                     <input
                         type="datetime-local"
                         required
@@ -128,7 +137,7 @@ export default function MainModal(props) {
                     />
 
                     <br/>
-                    <label>End Time: </label>
+                    <label>End Time:  </label>
                     <input
                         type="datetime-local"
                         required
@@ -137,7 +146,7 @@ export default function MainModal(props) {
                     />
 
                     <br/>
-                    <label>Participants</label>
+                    <label>Participants:  </label>
                     <input
                         type="string"
                         required
@@ -147,7 +156,7 @@ export default function MainModal(props) {
                     />
 
                     <br/>
-                    <label>Description</label>
+                    <label>Description:  </label>
                     <input
                         type="string"
                         required
@@ -174,11 +183,13 @@ export default function MainModal(props) {
                         onChange={(e)=> setEvent({...event, eventID : e.target.value})}
                     />
                     */}
-                    <br/><br/>
-                    <button onClick={postData}>POST</button>
+                    <br/><br/><br/><br/>
+                    <div className='PostButton'>
+                      <Button variant="none" onClick={postData}>POST</Button>
+                    </div>
+                    
                 </form>
             </div>
-            <br/><br/>
             {/* 
             <p>Event Name: {eventName}</p>
             <p>Start Time: {startTime}</p>
@@ -188,12 +199,12 @@ export default function MainModal(props) {
             */}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">Understood</Button>
+            <div className='ModalFooterContent'>
+              <Button variant="secondary" onClick={handleClose}>Close</Button>
+            </div>
+          
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
 }

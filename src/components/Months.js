@@ -145,7 +145,7 @@ const Months = (props) => {
             </div>
             */
             <div className="monthsContainer">
-                <div className="months" id="Dec2" onClick={() => scrollToDec2(props.Dec2)}>
+                <div className="months" id="Dec" onClick={() => scrollToDec2(props.Dec2)}>
                     Dec
                 </div>
                 <div className="months" id="Jan" onClick={() => scrollToJan(props.Jan)}>
@@ -184,7 +184,7 @@ const Months = (props) => {
                 <div className="months" id="Dec" onClick={() => scrollToDec(props.Dec)}>
                     Dec
                 </div>
-                <div className="months" id="Jan2" onClick={() => scrollToJan2(props.Jan2)}>
+                <div className="months" id="Jan" onClick={() => scrollToJan2(props.Jan2)}>
                     Jan
                 </div>
 

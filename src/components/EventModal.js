@@ -31,6 +31,8 @@ export default function EventModal(props) {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
+        size="lg"
+        centered
       >
         <Modal.Header closeButton>
           <Modal.Title>{props.eventName}</Modal.Title>
@@ -46,7 +48,7 @@ export default function EventModal(props) {
             Participants: {props.eventParticipants}
             <br/><br/><br/><br/>
 
-            <Button variant="primary" onClick={(e) => deleteRequest(id, e)}>Delete Event</Button>
+            <Button variant="danger" onClick={(e) => deleteRequest(id, e)}>Delete Event</Button>
 
         </Modal.Body>
         <Modal.Footer>

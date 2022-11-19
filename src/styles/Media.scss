@@ -3,7 +3,7 @@
 // }
 
 @mixin Res1240 {
-    @media only screen and (max-width: 1235 ) { @content; }
+    @media only screen and (max-width: 1235px ) { @content; }
 }
 
 @mixin Res900 {

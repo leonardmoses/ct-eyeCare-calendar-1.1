@@ -2,7 +2,9 @@
 
 
 html {
-
+    h1, h2, h3, h4, h5, h6, p, a, div, input {
+        font-family: 'Rokkitt', serif;
+        }
     body {
         width: 100%;
         // background-color: rgb(106, 106, 106);
@@ -30,107 +32,241 @@ html {
 
 
                 .julianDaysComponent {
-                        // width: 100%;
-                        // height: 100%;
-                        background-color: $primary4;
-                        // background-color: blue;
-                        display: flex; //Incharge of Days grid
+                    // width: 100%;
+                    // height: 100%;
+                    background-color: $primaryBlack;
+                    // background-color: blue;
+                    display: flex; //Incharge of Days grid
+                    flex-wrap: wrap;
+                    padding-top: 2px;
+                    // position: relative;
+
+                    .prev-year-padding, .prev-year-days, .current-year-days, .next-year-days, .next-year-padding {
+                        background-color: $tertiary3;
+                        width: calc(100% / 7);
+                        height: calc(100vh/7);
+                        color: black;
+                        border: solid rgba(0, 0, 0, 0.6) 1px;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        transition: background-color 0.2s;
+                        display: flex;
                         flex-wrap: wrap;
-                        padding-top: 2px;
+                        // position: absolute;
+                        // padding-bottom: 18%;
+                        
 
-                        .prev-year-padding, .prev-year-days, .current-year-days, .next-year-days, .next-year-padding {
-                            background-color: $tertiary3;
-                            border-width: 0.5em;
-                            clip-path: polygon(1% 1%, 99% 1%, 99% 99%, 1% 99%);
-                            width: calc(100% / 7);
-                            height: calc(100vh/7);
-                            color: black;
-                            border: solid $primary5 1px;
+                        @include iphone12Pro {
                             border-radius: 8px;
-                            cursor: pointer;
-                            transition: background-color 0.2s;
+                        };
 
-                            @include iphone12Pro {
-                                border-radius: 8px;
-                            };
+                        @include iphoneSE {
+                            border-radius: 6px;
+                        };
+                    }
 
-                            @include iphoneSE {
-                                border-radius: 6px;
-                            };
+                    .prev-year-padding, .next-year-padding {
+                        background-color: rgb(40, 40, 40);
+                        color: rgba(0, 0, 0, 0.0);
+                        transition: background-color 0.2s;
+                    }
+
+                    .prev-year-days, .current-year-days, .next-year-days{
+                        color: $tertiary5;
+                        transition: background-color 0.2s;
+                        // position: relative;
+                        // width: 100%;
+
+                        h6 {
+                            font-size: 14px;
+                            padding: 3px 3px 0 3px;
                         }
 
-                        .prev-year-padding, .next-year-padding {
-                            background-color: rgb(40, 40, 40);
-                            color: rgba(0, 0, 0, 0.0);
-                            transition: background-color 0.2s;
+                        .julianCount {
+                            // background-color: green;
+                            margin-right: auto;
                         }
 
-                        .prev-year-days, .current-year-days, .next-year-days{
-                            background-color: $tertiary3;
+                        .monthCount {
                             // background-color: blue;
-                            color: $tertiary5;
-                            transition: background-color 0.2s;
-                            position: relative;
+                            margin-left: auto;
+                            display: flex;
+                        }
+
+                        .allEventsInDay {
+                            // background-color: pink;
                             display: flex;
                             flex-wrap: wrap;
-                            // width: 100%;
+                            // overflow-y: scroll;
 
-                            h6 {
-                                font-size: 14px;
-                                padding: 3px 3px 0 3px;
-                            }
-
-                            .julianCount {
-                                // background-color: green;
-                                margin-right: auto;
-                            }
-
-                            .monthCount {
-                                // background-color: blue;
-                                margin-left: auto;
-                                display: flex;
-                            }
-
-                            .allEventsInDay {
+                            .eventName {
+                                background-color: $tertiary1;
                                 // background-color: pink;
+                                color: $tertiary5;
+                                font-size: 14px;
+                                border-radius: 3px;
                                 height: fit-content;
-                                // width: 100%;
-
-                                .eventName {
-                                    background-color: $tertiary1;
-                                    // background-color: pink;
-                                    color: $tertiary5;
-                                    font-size: 14px;
-                                    border-radius: 3px;
-                                    height: fit-content;
-                                    width: 100%;
-                                    text-align: center;
-                                    margin: 0 3px;
-                                    margin-bottom: 5px;
-                                    box-shadow: 1px 2px 3px -1.5px $tertiary5;
-                                }
+                                width: 100%;
+                                text-align: center;
+                                margin: 0 3px;
+                                margin-bottom: 5px;
+                                box-shadow: 1px 2px 3px -1.5px $tertiary5;
                             }
                         }
+                    }
 
-                        .prev-year-days, .next-year-days {
-                            background-color: $tertiary2;
-                        }
+                    .prev-year-days, .next-year-days {
+                        background-color: grey;
+                        color: rgb(174, 174, 174)
+                    }
 
-                        .prev-year-days:hover , .current-year-days:hover, .prev-year-days:hover, .next-year-days:hover{
-                            background-color: $tertiary1;
-                            // border: solid $tertiaryWhite 1px;
-                            cursor: pointer;
-                        }
+                    .prev-year-days:hover , .current-year-days:hover, .prev-year-days:hover, .next-year-days:hover{
+                        background-color: $tertiary1;
+                        // border: solid $tertiaryWhite 1px;
+                        cursor: pointer;
+                    }
 
-                        .prev-year-padding:hover, .next-year-padding:hover {
-                            background-color: $tertiary1;
-                            // border: solid $tertiaryWhite 1px;
-                            cursor: pointer;
-                            
-                        }
+                    .prev-year-padding:hover, .next-year-padding:hover {
+                        background-color: $tertiary1;
+                        // border: solid $tertiaryWhite 1px;
+                        cursor: pointer;
+                        
+                    }
+
+                    //#region Colors for each Month
+                    // #Dec2 {
+                    //     @include Dec2;
+                    // }
+                    #Jan {
+                        @include Jan;
+                    }
+                    #Feb {
+                        @include Feb;
+                    }
+                    #Mar {
+                        @include Mar;
+                    }
+                    #Apr {
+                        @include Apr;
+                    }
+                    #May {
+                        @include May;
+                    }
+                    #Jun {
+                        @include Jun;
+                    }
+                    #Jul {
+                        @include Jul;
+                    }
+                    #Aug {
+                        @include Aug;
+                    }
+                    #Sep {
+                        @include Sep;
+                    }
+                    #Oct {
+                        @include Oct;
+                    }
+                    #Nov {
+                        @include Nov;
+                    }
+                    #Dec {
+                        @include Dec;
+                    }
+                    // #Jan2 {
+                    //     @include Jan2;
+                    // }
+                    //#endregion
                     
                 }
 
+            }
+        }
+    }
+
+    .modal-open {
+        .modal-dialog {
+            .modal-content{ //this controls the entire modal
+                // background-color: blue;
+                
+                .modal-header{
+                    background-color: $secondary2;
+                    div.modal-title {
+                        // background-color: blue;
+                        width: 100%;
+                        h2 {
+                            // background-color: red;
+                            width: 100%;
+                            font-size: 1.5em;
+                            text-align: center;
+                        }
+                    }
+
+                }
+                .modal-body {
+                    background-color: $secondary1;
+
+                    .ModalBodyContent {
+                        background-color: rgb(218, 208, 224);
+                        width: 90%;
+                        margin: 0 auto;
+                        border: solid 1px $secondary3;
+                        border-radius: 20px;
+                        // padding: 10px 50px;
+                        justify-content: center;
+                        // align-items: center;
+                        // text-align: center;
+                        h3 {
+                            margin-top: 10px;
+                            text-align: center;
+                            font-size: 1.2em;
+                        }
+                        label {
+                            padding-left: 30px;
+                        }
+                        input {
+                            text-align: center;
+                        }
+
+                        .PostButton {
+                            // background-color: red;
+                            width: 100%;
+                            display: flex;
+                            overflow: hidden;
+
+                            Button {
+                                width: 100%;
+                                margin: 0 auto;
+                                overflow: hidden;
+                                background-color: $secondary4;
+                                color: $secondary1;
+                                border: solid 1px $secondary5;
+                                border-radius: unset;
+                                border-bottom-left-radius: 20px;
+                                border-bottom-right-radius: 20px;
+                            }
+                            button:hover {
+                                background-color: $secondary2;
+                                color: $secondary5;
+                                border: solid 1px $secondary4;
+                            }
+                        }
+                    }
+
+
+                }
+                .modal-footer{
+                    background-color: $secondary2;
+
+                    .ModalFooterContent {
+                        // background-color: blue;
+                        width: 100%;
+                        display: flex;
+                        Button {
+                            margin: 0 auto;
+                        }
+                    }
+                }
             }
         }
     }
