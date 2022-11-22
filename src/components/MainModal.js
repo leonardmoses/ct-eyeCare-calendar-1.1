@@ -117,9 +117,9 @@ export default function MainModal(props) {
             <div className='ModalBodyContent'>
                 <h3>Please enter all event fields</h3>
                 <br/>
-                <form>
+                <form className='ModalForm'>
                     <label>Event Name:  </label>
-                    <input
+                    <input className='ModalInput'
                         type="string"
                         required
                         value={eventName}
@@ -129,7 +129,7 @@ export default function MainModal(props) {
 
                     <br/>
                     <label>Start Time:  </label>
-                    <input
+                    <input className='ModalInput'
                         type="datetime-local"
                         required
                         value={startTime}
@@ -138,7 +138,7 @@ export default function MainModal(props) {
 
                     <br/>
                     <label>End Time:  </label>
-                    <input
+                    <input className='ModalInput'
                         type="datetime-local"
                         required
                         value={endTime}
@@ -147,7 +147,7 @@ export default function MainModal(props) {
 
                     <br/>
                     <label>Participants:  </label>
-                    <input
+                    <input className='ModalInput'
                         type="string"
                         required
                         value={participants}
@@ -157,13 +157,16 @@ export default function MainModal(props) {
 
                     <br/>
                     <label>Description:  </label>
-                    <input
-                        type="string"
-                        required
-                        value={description}
-                        placeholder="Enter brief description"
-                        onChange={(e)=> setDescription(e.target.value)}
-                    />
+                    <div className='ModalDescriptionDiv'>
+                      <input className='ModalInput' id='Description'
+                      type="textarea"
+                      required
+                      value={description}
+                      placeholder="Enter brief description"
+                      onChange={(e)=> setDescription(e.target.value)}
+                      />
+                    </div>
+
 
                     {/*
                     <br/>
