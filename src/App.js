@@ -2,7 +2,7 @@ import React, {useState, useEffect, useInsertionEffect} from 'react';
 import './styles/App.scss';
 import Layout from './components/common/Layout';
 import JulianDays from './components/JulianDays';
-import axios from 'axios';
+import axios, { Axios } from 'axios';
 import {URL} from './components/JS/URLS'
 
 
@@ -16,19 +16,16 @@ function App() {
   // #region GET Request
   const [events, setEvents] = useState('')
 
-  const fetchData = async () => {
-      try {
-          const response = await axios(URL);
-          setEvents(response.data)
-      } catch (error) {
-          console.log(error.response)
-      }
-  };
-  
+const getEvents = () => {
+  axios.get(URL)
+  .then(response => {
+    setEvents(response.data)
+  })
+}
 
   useEffect(() => {
-    fetchData();
-}, []);
+    getEvents();
+  }, []);
   // #endregion GET request
 
   return (
