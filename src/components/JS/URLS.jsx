@@ -12,7 +12,8 @@ export let URL = ''
 // URL = 'http://localhost:4000/publicholidays/2020/GB'
 // URL = 'http://localhost:4000/see-care-php-7.4/staff/calendar/querypage.php'
 
-URL = 'https://6350235ddf22c2af7b64a794.mockapi.io/api/v1/events';
+// URL = 'https://6350235ddf22c2af7b64a794.mockapi.io/api/v1/events';
+URL = 'http://localhost:4000'
 
 
 //  #endregion

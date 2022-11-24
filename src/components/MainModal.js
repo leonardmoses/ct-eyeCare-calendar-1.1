@@ -17,7 +17,7 @@ export default function MainModal(props) {
     const [description, setDescription] = useState('')
 
     useEffect(() => {
-        axios.get(URL)
+        axios.get(`${URL}/getEvents`)
         .then(response => {
           setEvents(response.data)
           // setStartTimeAPI(response.data[1].startTime)
@@ -28,7 +28,7 @@ export default function MainModal(props) {
 
     const postData = (e) => {
         e.preventDefault();
-        axios.post(URL, {
+        axios.post(`${URL}/createEvent`, {
             eventName,
             startTime,
             endTime,

@@ -2,6 +2,8 @@ import React, { useState , useEffect } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import UpdateModal from './UpdateModal'
+import { months } from './JS/Snippets';
 
 export default function EventModal(props) {
 
@@ -10,16 +12,50 @@ export default function EventModal(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const deleteRequest = (id, e) => {
-        id = props.id
-        e.preventDefault();
-        axios.delete(`${props.URL}/${id}`)
-        .then(res => console.log('Deleted Event!', res)).catch(err => console.log(err))
+
+    const updateEventName = (id , e) => {
+      id = props.id
+      console.log(id)
+      let newEventName = prompt("Enter New Event Name");
+      axios.put(`${props.URL}/updateEventName`, {
+        id: id,
+        newEventName: newEventName
+      });
+    };
+
+    const updateParticipants = (id , e) => {
+      id = props.id
+      console.log(id)
+      const newParticipants = prompt("Type new participants");
+      axios.put(`${props.URL}/updateparticipants`, {
+        id: id,
+        newParticipants: newParticipants
+      });
+    };
+
+    const updateDescription = (id , e) => {
+      id = props.id
+      console.log(id)
+      const newDescription = prompt("Type a new description");
+      axios.put(`${props.URL}/updatedescription`, {
+        id: id,
+        newDescription: newDescription
+      });
+    };
+
+    const deleteEvent = (id, e) => {
+      id = props.id
+      console.log(`${id}: ${props.eventName}: Deleted!`)
+      axios.delete(`${props.URL}/deleteEvent/${id}`)
     }
 
-    // console.log(`${props.URL}/${props.id}`)
-    let id = props.event.ID
-    // console.log(id)
+    const startMonth = months[props.eventStart.slice(5,7)]
+    const startDay = props.eventStart.slice(8,10)
+    const startTime = props.eventStart.slice(11,16)
+    const endMonth = months[props.eventEnd.slice(5,7)]
+    const endDay = props.eventEnd.slice(8,10)
+    const endTime = props.eventEnd.slice(11,16)
+
   return (
     <>
       <div variant="primary" onClick={handleShow}>
@@ -35,20 +71,40 @@ export default function EventModal(props) {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title>{props.eventName}</Modal.Title>
+          <Modal.Title>{props.eventName}</Modal.Title> 
+
+
+
         </Modal.Header>
         <Modal.Body>
+            {`Start Time: ${startTime} | Date: ${startMonth} ${startDay}`}
 
-            Start Time: {props.eventStart}
             <br/><br/>
-            End Time: {props.eventEnd}
+            {`End Time: ${endTime} | Date: ${endMonth} ${endDay}`}
             <br/><br/>
             Description: {props.eventDescription}
+
+
             <br/><br/>
-            Participants: {props.eventParticipants}
+            Participants: {props.eventParticipants} <br/>
+
+            <br/>
+            <Button variant="success" size="sm" onClick={(id) => {
+              updateEventName(id)
+            }}>Edit Event Name</Button>
+            <Button variant="success" size="sm" onClick={(id) => {
+              updateParticipants(id)
+            }}>Edit Participants</Button>
+            <Button variant="success" size="sm" onClick={(id) => {
+              updateDescription(id)
+            }}>Edit Description</Button>
+
             <br/><br/><br/><br/>
 
-            <Button variant="danger" onClick={(e) => deleteRequest(id, e)}>Delete Event</Button>
+            <Button variant="danger" onClick={(id) => {
+              deleteEvent(id)
+            }}>Delete Event</Button>
+            
 
         </Modal.Body>
         <Modal.Footer>

@@ -1,23 +1,19 @@
-import React, {useState, useEffect, useInsertionEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import './styles/App.scss';
 import Layout from './components/common/Layout';
 import JulianDays from './components/JulianDays';
-import axios, { Axios } from 'axios';
+import axios from 'axios';
 import {URL} from './components/JS/URLS'
 
 
 
 function App() {
 
-  // #region Modal
-  const [isOpen, setIsOpen] = useState(false)
-  // #endregion
-
   // #region GET Request
   const [events, setEvents] = useState('')
 
 const getEvents = () => {
-  axios.get(URL)
+  axios.get(`${URL}/getEvents`)
   .then(response => {
     setEvents(response.data)
   })
@@ -27,6 +23,8 @@ const getEvents = () => {
     getEvents();
   }, []);
   // #endregion GET request
+
+  // console.log(events)
 
   return (
 

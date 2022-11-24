@@ -62,4 +62,21 @@
       }
     //#endregion
 
+    export const months = [
+        'December',
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+        'January',
+    ]
+
     console.log("____________ JS Snippets END ____________")

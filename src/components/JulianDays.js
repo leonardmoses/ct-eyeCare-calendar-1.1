@@ -96,7 +96,6 @@ const JulianDays = (props) => {
     // #endregion
     // console.log(events)
 
-
     return (  // Main JulianDays.js Return
         
         <> 
@@ -119,15 +118,15 @@ const JulianDays = (props) => {
 
             {currentYearDays.map((day, index) => {
                 // For each day displayed, create a new object property of an empty array
-                day.event = []
+                day.events = []
 
                 // loop through all the events in the API
                 for (let i=0; i<=props.events.length; i++) {
 
-                    // If the 2 julian days match (The Day's julian count is within the array of the events julian range (start date to end date))
+                    // If the 2 julian days match (The Day's julian count is within the array of the event's julian range (start date to end date))
                     if ( props.events[i]?.dateRangeJulian.includes(day.julianCount) ) {
                         // push event name into the day's empty array 
-                        day.event.push(props.events[i])
+                        day.events.push(props.events[i])
 
                     } else {
                         // do nothing
@@ -146,26 +145,30 @@ const JulianDays = (props) => {
 
                         <div className="allEventsInDay">
 
-                            {day.event.map((event , index)  => {
+                            {day.events.map((event , index)  => {
                                 const showTest = () => {
-                                    console.log(event.eventName)
-                                    console.log(event.description)
-                            }
+                                    // console.log(event.eventName)
+                                    // console.log(event.description)
+                                    // console.log(day.event[0]._id)
+                                }
 
                             return (
                                 <div key={index} className="eventName" onClick={showTest}>
+                                    
+                                 
 
+                                    
                                     <EventModal 
-                                    event={day.event[0]}
+                                    event={event}
                                     URL={props.URL}
-                                    eventName={day.event[0].eventName} 
-                                    id={day.event[0].ID}
-                                    eventStart={day.event[0].startTime}
-                                    eventEnd={day.event[0].endTime}
-                                    eventParticipants={day.event[0].participants}
-                                    eventDescription={day.event[0].description}
+                                    eventName={event.eventName} 
+                                    id={event._id}
+                                    eventStart={event.startTime}
+                                    eventEnd={event.endTime}
+                                    eventParticipants={event.participants}
+                                    eventDescription={event.description}
                                     />
-
+                                    
                                 </div>
                             )
                             })}

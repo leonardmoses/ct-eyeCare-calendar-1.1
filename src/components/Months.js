@@ -28,7 +28,7 @@ const Months = (props) => {
     let Total = 6150
     let TotalDiv = Math.floor(Total/13)
 
-    console.log(TotalDiv)
+    // console.log(TotalDiv)
 
     const scrollToDec2 = (elementRef) => {
         window.scrollTo({
