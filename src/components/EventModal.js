@@ -46,7 +46,12 @@ export default function EventModal(props) {
     const deleteEvent = (id, e) => {
       id = props.id
       console.log(`${id}: ${props.eventName}: Deleted!`)
-      axios.delete(`${props.URL}/deleteEvent/${id}`)
+      axios.delete(`${props.URL}/deleteEvent/${id}`).then(() => {
+        props.setEvents(props.events.filter((val) => {
+          return val._id != id;
+        }))
+      }) 
+
     }
 
     const startMonth = months[props.eventStart.slice(5,7)]
@@ -55,6 +60,8 @@ export default function EventModal(props) {
     const endMonth = months[props.eventEnd.slice(5,7)]
     const endDay = props.eventEnd.slice(8,10)
     const endTime = props.eventEnd.slice(11,16)
+
+    // console.log(props.events)
 
   return (
     <>

@@ -35,7 +35,7 @@ const getEvents = () => {
         <div className="calContainer">
         
           <div className="julianDaysComponent">
-            <JulianDays URL={URL} events={events}/>
+            <JulianDays URL={URL} events={events} setEvents={setEvents}/>
           </div>
 
         </div>

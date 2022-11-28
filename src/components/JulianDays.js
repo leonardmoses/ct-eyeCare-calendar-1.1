@@ -26,7 +26,7 @@ const JulianDays = (props) => {
             //gets just the month number
             startTimeMonth = props.events[i].startTime.substring(5,7);
             // console.log(props.events[i])
-            console.log(startTimeMonth)
+
             // Checks for leap year and uses appropriate julianConverterKey
             if (!isLeapYear) {
                 //converts the month number to julian count of last day of previous month
@@ -82,7 +82,7 @@ const JulianDays = (props) => {
         }
     }
     // #endregion
-    // console.log(events)
+    // console.log(props.events)
 
     return (  // Main JulianDays.js Return
         
@@ -154,6 +154,8 @@ const JulianDays = (props) => {
                                     <div key={index} className="eventName" onClick={showTest}>
                                         
                                         <EventModal 
+                                        events={props.events}
+                                        setEvents={props.setEvents}
                                         event={event}
                                         URL={props.URL}
                                         eventName={event.eventName} 

@@ -48,41 +48,7 @@ export default function MainModal(props) {
     }
     // console.log(allEvents)
 
-    const JulianDayConverter = {
-        1: 31,
-        2: 28,
-        3: 31,
-        4: 30,
-        5: 31,
-        6: 30,
-        7: 31,
-        8: 31,
-        9: 30,
-        10: 31,
-        11: 30,
-        12: 31
-      }
-  
-      const JulianDayConverterLeap = {
-        1: 31,
-        2: 29,
-        3: 31,
-        4: 30,
-        5: 31,
-        6: 30,
-        7: 31,
-        8: 31,
-        9: 30,
-        10: 31,
-        11: 30,
-        12: 31
-      }
-        
-      let convertToJulian = Object.keys(JulianDayConverter)
-
-      // console.log(convertToJulian)
-
-
+    
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
