@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef, createElement} from "react";
+import React from "react";
 import Months from "../Months";
 import Year from "../Year";
 import MainModal from '../MainModal';
@@ -11,6 +11,7 @@ const Header = () => {
         <div className='Header'>
             
             <div className="HeaderTopBlock">
+
                 <div className="titleDiv"><h1>See-Care-Cal</h1></div>
                 <div className="yearDiv">
                     <Year/>
@@ -21,8 +22,6 @@ const Header = () => {
                 </div>
 
             </div>
-
-
 
 
             <div className="monthsDiv"><Months/></div>

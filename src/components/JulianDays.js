@@ -5,23 +5,10 @@ import {dec1PrevYearDays, currentYearDays, Jan31NextYearDays, dec1paddingInitial
 import {JulianConverterKey, JulianConverterKeyLeap} from './JS/Snippets';
 import axios from "axios";
 import EventModal from "./EventModal";
-// import React from 'react';
-import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
+
+
 
 const JulianDays = (props) => {
-
-    // const Jan = useRef(null)
-    // const Feb = useRef(null)
-    // const Mar = useRef(null)
-    // const Apr = useRef(null)
-    // const May = useRef(null)
-    // const Jun = useRef(null)
-    // const Jul = useRef(null)
-    // const Aug = useRef(null)
-    // const Sep = useRef(null)
-    // const Oct = useRef(null)
-    // const Nov = useRef(null)
-    // const Dec = useRef(null)
 
     // #region Adds julian days as new object property to events
     const addJulianDaysObjectProperty = () => {
@@ -132,47 +119,51 @@ const JulianDays = (props) => {
                         // do nothing
                     }
                 };
-                // console.log(day)
+
+                // Adds another object property to each day called monthShortNum and gives it the Month(short) and date in one string.
+                day.monthShortNum = day.monthShort+day.monthCount
+                console.log(day)
 
                 return(
-                    <div key={index} className="current-year-days" id={day.monthShort}>
-                        <h6 className="julianCount">({day.julianCount})</h6>
+                    <div key={index} className="current-year-days" id={day.monthShort} data-monthshortnumber={day.monthShortNum}>
 
-                        <div className="monthCount">
-                            <h6>{day.monthShort}</h6>
-                            <h6>{day.monthCount}</h6>
-                        </div>
+                        <div id={day.monthShortNum}>
+                        
+                            <h6 className="julianCount">({day.julianCount})</h6>
 
-                        <div className="allEventsInDay">
+                            <div className="monthCount">
+                                <h6>{day.monthShort}</h6>
+                                <h6>{day.monthCount}</h6>
+                            </div>
 
-                            {day.events.map((event , index)  => {
-                                const showTest = () => {
-                                    // console.log(event.eventName)
-                                    // console.log(event.description)
-                                    // console.log(day.event[0]._id)
-                                }
+                            <div className="allEventsInDay">
 
-                            return (
-                                <div key={index} className="eventName" onClick={showTest}>
-                                    
-                                 
+                                {day.events.map((event , index)  => {
+                                    const showTest = () => {
+                                        // console.log(event.eventName)
+                                        // console.log(event.description)
+                                        // console.log(day.event[0]._id)
+                                    }
 
-                                    
-                                    <EventModal 
-                                    event={event}
-                                    URL={props.URL}
-                                    eventName={event.eventName} 
-                                    id={event._id}
-                                    eventStart={event.startTime}
-                                    eventEnd={event.endTime}
-                                    eventParticipants={event.participants}
-                                    eventDescription={event.description}
-                                    />
-                                    
-                                </div>
-                            )
-                            })}
+                                return (
+                                    <div key={index} className="eventName" onClick={showTest}>
+                                        
+                                        <EventModal 
+                                        event={event}
+                                        URL={props.URL}
+                                        eventName={event.eventName} 
+                                        id={event._id}
+                                        eventStart={event.startTime}
+                                        eventEnd={event.endTime}
+                                        eventParticipants={event.participants}
+                                        eventDescription={event.description}
+                                        />
+                                        
+                                    </div>
+                                )
+                                })}
 
+                            </div>
                         </div>
                     </div>
                 )

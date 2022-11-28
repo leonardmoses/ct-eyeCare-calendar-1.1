@@ -11,7 +11,6 @@ export default function UpdateModal(props) {
     const handleShow = () => setShow(true);
 
 
-
   return (
     <>
       <Button variant="primary" onClick={handleShow}>

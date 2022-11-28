@@ -79,4 +79,12 @@
         'January',
     ]
 
+    export let Days31 = []
+
+    for (let i = 1; i<32; i++) {
+        Days31.push(i)
+    }
+
+    // console.log(Days31)
+
     console.log("____________ JS Snippets END ____________")
