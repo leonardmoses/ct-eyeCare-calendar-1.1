@@ -25,7 +25,8 @@ const JulianDays = (props) => {
         for (let i=0; i<props.events.length; i++) {
             //gets just the month number
             startTimeMonth = props.events[i].startTime.substring(5,7);
-    
+            // console.log(props.events[i])
+            console.log(startTimeMonth)
             // Checks for leap year and uses appropriate julianConverterKey
             if (!isLeapYear) {
                 //converts the month number to julian count of last day of previous month
@@ -33,13 +34,13 @@ const JulianDays = (props) => {
             } else {
                 startTimeMonthToJulianDayPrev = JulianConverterKeyLeap[startTimeMonth];
             }
-    
+
             //gets just the day number of the month
             startTimeDay = props.events[i].startTime.substring(8,10);
     
             // takes last day of prev month and adds event's day of month, resulting in event's julian day
             startTimeJulianDay = parseInt(startTimeMonthToJulianDayPrev) + parseInt(startTimeDay)
-    
+            
             // takes event's julian day and adds it as a new object property to event 
             props.events[i].startTimeJulianDay = startTimeJulianDay
         }
@@ -59,7 +60,7 @@ const JulianDays = (props) => {
     
             //gets just the day number of the month
             endTimeDay = props.events[i].endTime.substring(8,10);
-    
+
             // takes last day of prev month and adds event's day of month
             endTimeJulianDay = parseInt(endTimeMonthToJulianDayPrev) + parseInt(endTimeDay)
     
@@ -89,7 +90,7 @@ const JulianDays = (props) => {
 
             {dec1paddingInitial.map((day, index) => {
                 return (
-                    <div key={index} className="prev-year-padding">
+                    <div key={index} className="prev-year-padding" id="top-of-cal">
                         {day}
                     </div>
                 )
@@ -122,10 +123,14 @@ const JulianDays = (props) => {
 
                 // Adds another object property to each day called monthShortNum and gives it the Month(short) and date in one string.
                 day.monthShortNum = day.monthShort+day.monthCount
-                console.log(day)
+                // console.log(day)
+
+                const consolelog = () => {
+                    console.log(day)
+                }
 
                 return(
-                    <div key={index} className="current-year-days" id={day.monthShort} data-monthshortnumber={day.monthShortNum}>
+                    <div key={index} className="current-year-days" id={day.monthShort} data-monthshortnumber={day.monthShortNum} onClick={consolelog}>
 
                         <div id={day.monthShortNum}>
                         
@@ -179,7 +184,7 @@ const JulianDays = (props) => {
 
             {jan31paddingInitial.map((day, index) => {
                 return (
-                    <div key={index} className="next-year-padding">
+                    <div key={index} className="next-year-padding" id="bottom-of-cal">
                         {day}
                     </div>
                 )

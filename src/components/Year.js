@@ -49,9 +49,11 @@ const Year = () => {
     return ( 
         <div className="yearCountDiv">
             <span>
-                <button onClick={decreaseYear}>Prev</button>
+
+                {/*<button onClick={decreaseYear}>Prev</button>*/}
                     <h2 id="displayYear">{year}</h2>
-                <button onClick={increaseYear}>Next</button>
+                {/*<button onClick={increaseYear}>Next</button>*/}
+
             </span>
         </div>
 

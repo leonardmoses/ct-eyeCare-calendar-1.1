@@ -80,19 +80,22 @@ body {
                 flex-wrap: wrap;
                 flex-direction: row;
                 justify-content: center;
-                margin-top: 10px;
+                margin-top: 5px;
                 // align-items: center;
     
                 .yearCountDiv {
                     width: 100%;
                     // background-color: coral;
+
                     h2 {
                         @include Titleh2;
                         // background-color: aqua;
                         // color: $secondary3;
-                        font-size: 2em;
-                        margin: 0 10px;
                         display: flex;
+                        font-size: 2.5rem;
+                        margin: 0 10px;
+                        margin: 0 auto;
+                        
                         justify-content: space-around;
                     }
                     span {
@@ -101,7 +104,7 @@ body {
                         // background-color: fuchsia;
                         margin: 0 auto;
                         justify-content: space-between;
-    
+
                         button {
                             width: 30%;
                             // margin: 0 auto;

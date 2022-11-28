@@ -9,7 +9,7 @@ const Months = (props) => {
 
             <div className="monthsContainer">
                 
-                <a href="#Jan1">
+                <a href="#top-of-cal">
                     <div className="months" id="Dec" >Dec</div>
                 </a>
                 
@@ -74,7 +74,7 @@ const Months = (props) => {
                 </a>
             
             
-                <a href="#Dec1">
+                <a href="#bottom-of-cal">
                     <div className="months" id="Jan" >Jan</div>
                 </a>
                 

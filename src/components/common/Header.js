@@ -13,10 +13,12 @@ const Header = () => {
             <div className="HeaderTopBlock">
 
                 <div className="titleDiv"><h1>See-Care-Cal</h1></div>
+
+                
                 <div className="yearDiv">
                     <Year/>
                 </div>
-
+                
                 <div className="MainModalDiv">
                     <MainModal className="MainModalComponent"></MainModal>
                 </div>
