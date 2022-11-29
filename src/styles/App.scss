@@ -17,6 +17,7 @@ html {
             display: flex;
             flex-wrap: wrap;
 
+
             .calContainer {
                 // background-color: darkviolet;
                                 // height: 100%;
@@ -27,7 +28,7 @@ html {
                 box-shadow: 10px 10px 40px 5px #7b5c9768;
                 // border: $primary5 solid 1px;
                 border-radius: 8px;
-                box-shadow: 0px 0px 12px -1px $primaryBlack;
+                box-shadow: 0px 0px 12px -2px $primaryBlack;
 
 
 
@@ -48,7 +49,7 @@ html {
                         color: black;
                         border: solid rgba(0, 0, 0, 0.6) 1px;
                         border-radius: 8px;
-                        cursor: pointer;
+                        // cursor: pointer;
                         transition: background-color 0.2s;
                         display: flex;
                         flex-wrap: wrap;
@@ -76,44 +77,94 @@ html {
                         transition: background-color 0.2s;
                         // position: relative;
                         // width: 100%;
-                        
+                        display: flex;
+                        flex-wrap: wrap;
+                        overflow-y: auto;
+                        overflow-x: hidden;
 
-                        h6 {
-                            font-size: 14px;
-                            padding: 3px 3px 0 3px;
-                        }
-
-                        .julianCount {
-                            // background-color: green;
-                            margin-right: auto;
-                        }
-
-                        .monthCount {
-                            // background-color: blue;
-                            margin-left: auto;
-                            display: flex;
-                        }
-
-                        .allEventsInDay {
+                        .current-year-days-Div {
                             // background-color: pink;
+                            width: 100%;
                             display: flex;
                             flex-wrap: wrap;
-                            // overflow-y: scroll;
+                            
+                            h6 {
+                                font-size: 0.9rem;
+                                padding: 3px 3px 0 3px;
 
-                            .eventName {
-                                background-color: $tertiary1;
-                                // background-color: pink;
-                                color: $tertiary5;
-                                font-size: 14px;
-                                border-radius: 3px;
+                                @include Res500 {font-size: 0.7rem;}
+                            }
+
+                            .julianCountDiv {
+                                background-color: $primary1;
+                                color: $primary5;
                                 height: fit-content;
                                 width: 100%;
-                                text-align: center;
-                                margin: 0 3px;
-                                margin-bottom: 5px;
-                                box-shadow: 1px 2px 3px -1.5px $tertiary5;
+                                border-bottom: 1px solid rgba(0, 0, 0, 0.224);
+                                // display: flex;
+                                // flex-wrap: wrap;
+                                top: 0;
+                                position: sticky;
+
+
+                                .julianCount {
+                                    // background-color: green;
+                                    width: 50%;
+                                    float: left;
+                                    @include Res700 {width: 100%;}
+                                }
+        
+                                .monthCount {
+                                    // background-color: blue;
+                                    width: 50%;
+                                    float: right;
+                                    display: flex;
+                                    @include Res700 {width: 100%;}
+                                }
+                            }
+
+    
+                            .allEventsInDay {
+                                // background-color: pink;
+                                display: block;
+    
+                                .eventName {
+                                    background-color: $secondary4;
+                                    // background-color: red;
+                                    color: $secondary1;
+                                    border-radius: 3px;
+                                    height: fit-content;
+                                    max-width: 98%;
+                                    text-align: center;
+                                    margin: 0 2%;
+                                    // padding: 0 2%;
+                                    margin-bottom: 3%;
+                                    box-shadow: 0px 1px 4px -1.2px $primaryBlack;
+
+                                    .eventNameDiv {
+                                        // background-color: red;
+                                        width: 100%;
+                                        
+                                        h6 {
+                                            // background-color: pink;
+                                            width: 100%;
+                                            font-size: 0.9rem;
+
+                                            @include Res500 {font-size: 0.7rem;}
+                                        }
+                                    }
+
+                                }
+
+                                .eventName:hover {
+                                    background-color: $secondary1;
+                                    color: $secondary4;
+                                    cursor: pointer;
+                                }
                             }
                         }
+
+
                     }
 
                     .prev-year-days, .next-year-days {
@@ -121,18 +172,18 @@ html {
                         color: rgb(174, 174, 174)
                     }
 
-                    .prev-year-days:hover , .current-year-days:hover, .prev-year-days:hover, .next-year-days:hover{
-                        background-color: $tertiary1;
-                        // border: solid $tertiaryWhite 1px;
-                        cursor: pointer;
-                    }
+                    // .prev-year-days:hover , .current-year-days:hover, .prev-year-days:hover, .next-year-days:hover{
+                    //     background-color: $tertiary1;
+                    //     // border: solid $tertiaryWhite 1px;
+                    //     cursor: pointer;
+                    // }
 
-                    .prev-year-padding:hover, .next-year-padding:hover {
-                        background-color: $tertiary1;
-                        // border: solid $tertiaryWhite 1px;
-                        cursor: pointer;
+                    // .prev-year-padding:hover, .next-year-padding:hover {
+                    //     background-color: $tertiary1;
+                    //     // border: solid $tertiaryWhite 1px;
+                    //     cursor: pointer;
                         
-                    }
+                    // }
 
                     //#region Colors for each Month
                     // #Dec2 {

@@ -132,14 +132,17 @@ const JulianDays = (props) => {
                 return(
                     <div key={index} className="current-year-days" id={day.monthShort} data-monthshortnumber={day.monthShortNum} onClick={consolelog}>
 
-                        <div id={day.monthShortNum}>
+                        <div className="current-year-days-Div" id={day.monthShortNum}>
                         
-                            <h6 className="julianCount">({day.julianCount})</h6>
+                            <div className="julianCountDiv">
+                                <h6 className="julianCount">({day.julianCount})</h6>
 
-                            <div className="monthCount">
-                                <h6>{day.monthShort}</h6>
-                                <h6>{day.monthCount}</h6>
+                                <div className="monthCount">
+                                    <h6>{day.monthShort}</h6>
+                                    <h6>{day.monthCount}</h6>
+                                </div>
                             </div>
+
 
                             <div className="allEventsInDay">
 

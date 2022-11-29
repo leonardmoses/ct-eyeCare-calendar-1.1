@@ -66,7 +66,9 @@ export default function EventModal(props) {
   return (
     <>
       <div variant="primary" onClick={handleShow}>
-        {props.eventName}
+        <div className='eventNameDiv'>
+          <h6>{props.eventName}</h6>
+        </div>
       </div>
 
       <Modal

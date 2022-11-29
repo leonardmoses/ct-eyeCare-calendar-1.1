@@ -12,6 +12,7 @@ body {
         width: 100%;
         // min-height: 15vh;  // windowed view
         background-color: $primary2;
+        background-image: linear-gradient($primaryWhite, $primary2);
         display: flex;
         flex-wrap: wrap;
         // justify-content: center;
@@ -46,7 +47,7 @@ body {
             // background-color: blue;
             display: flex;
             flex-wrap: wrap;
-            margin: 0 auto;
+            margin: 10px auto 0 auto;
             @include Res900 {width: 50;}
             @include Res700 {width: 60%;}
             @include Res500 {width: 70%;}
@@ -299,6 +300,13 @@ body {
                 //     @include Jan2;
                 // }
                 //#endregion
+
+                #Jan:hover, #Feb:hover, #Mar:hover, #Apr:hover, #May:hover, #Jun:hover, #Jul:hover, #Aug:hover, #Sep:hover, #Oct:hover, #Nov:hover, #Dec:hover {
+                    background-color: $primary1;
+                    color: $primary4;
+                    border: solid 1px $primaryBlack;
+                    cursor: pointer;
+                }
             }
         }
 
