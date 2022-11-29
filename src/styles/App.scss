@@ -8,11 +8,11 @@ html {
     body {
         width: 100%;
         // background-color: rgb(106, 106, 106);
-        background-color: $primary2;
+        // background-color: $primary2;
         // height: 100vh;
 
         .App {
-            // background-color: $primary2;
+            background-color: $primary2;
             // width: 100%;
             display: flex;
             flex-wrap: wrap;
@@ -20,27 +20,23 @@ html {
 
             .calContainer {
                 // background-color: darkviolet;
-                                // height: 100%;
+                // height: 100%;
                 width: 95%;
                 margin: 0 auto;
-                // justify-content: center;
-                // align-items: center;
-                box-shadow: 10px 10px 40px 5px #7b5c9768;
-                // border: $primary5 solid 1px;
-                border-radius: 8px;
-                box-shadow: 0px 0px 12px -2px $primaryBlack;
+                // box-shadow: 0px 0px 12px -2px $primaryBlack;
+                @include iphone12Pro {width: 99%;};
+                
 
 
 
                 .julianDaysComponent {
-                    // width: 100%;
-                    // height: 100%;
                     background-color: $primaryBlack;
                     // background-color: blue;
-                    display: flex; //Incharge of Days grid
+                    display: flex; //Incharge of flexing the days grid
                     flex-wrap: wrap;
-                    padding-top: 2px;
-                    // position: relative;
+                    // padding-top: 2px;
+                    border-bottom-left-radius: 12px;
+                    border-bottom-right-radius: 12px;
 
                     .prev-year-padding, .prev-year-days, .current-year-days, .next-year-days, .next-year-padding {
                         background-color: $tertiary3;
@@ -48,22 +44,14 @@ html {
                         height: calc(100vh/7);
                         color: black;
                         border: solid rgba(0, 0, 0, 0.6) 1px;
-                        border-radius: 8px;
+                        border-radius: 4px;
                         // cursor: pointer;
                         transition: background-color 0.2s;
                         display: flex;
                         flex-wrap: wrap;
-                        // position: absolute;
-                        // padding-bottom: 18%;
-                        
-
-                        @include iphone12Pro {
-                            border-radius: 8px;
-                        };
-
-                        @include iphoneSE {
-                            border-radius: 6px;
-                        };
+                        @include Res500{border-radius: 4px;};
+                        @include iphone12Pro {border-radius: 3px;};
+                        @include iphoneSE {border-radius: 2px;};
                     }
 
                     .prev-year-padding, .next-year-padding {
@@ -367,6 +355,78 @@ html {
                         display: flex;
                         Button {
                             margin: 0 auto;
+                        }
+                    }
+                }
+            }
+        }
+
+        .fade.modal.show {
+            // background-color: blue;
+
+            .modal-dialog {
+                // background-color: green;
+
+                .modal-content {
+                    // background-color: fuchsia;
+
+                    .modal-header {
+                        // background-color: aqua;
+                    }
+
+                    .modal-body {
+                        // background-color: aquamarine;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+
+                        .modal-display-text {
+                            // background-color: blue;
+                            width: 100%;
+                        }
+
+
+                    }
+
+                    .modal-footer {
+                        // background-color: antiquewhite;
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        .modal-edit-buttons {
+                            // background-color: fuchsia;
+                            width: 100%;
+                            margin-bottom: 10px;
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: space-between;
+
+                            Button {
+                                background-color: $secondary4;
+                                border: 1px solid $secondary5;
+                                width: 33%;
+
+                                @include Res500 {
+                                    width: 100%;
+                                }
+                            }
+
+                            Button:hover {
+                                background-color: $secondary1;
+                                color: $secondary5;
+                            }
+                        }
+
+                        .delete-close {
+                            // background-color: aqua;
+                            width: 100%;
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: space-between;
+                            
+                            Button {
+                                border: 1px solid rgba(86, 86, 86, 0.553);
+                            }
                         }
                     }
                 }

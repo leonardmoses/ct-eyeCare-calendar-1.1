@@ -18,31 +18,12 @@ body {
         // justify-content: center;
         // align-items: center;
         // text-align: center;
-        // position: relative;
         position: sticky;
-        // position: fixed;
         top: 0px;
         z-index: 1;
 
-        // // Setting the responsivness for width changes for the Header
-        // @include Res500 {
-        //     height: 32vh;
-        // };
-        // @include iphone12Pro {
-        //     height: 30vh;
-        // };
-        // // Setting the responsivness for height changes for the Header
-        // @include Height1000 {
-        //     background-color: coral;
-        //     height: 20vh;
-        // }
-        // @include Height750 {
-        //     background-color: coral;
-        //     height: 25vh;
-        // }
 
         .HeaderTopBlock {
-
             width: 30%;
             // background-color: blue;
             display: flex;
@@ -96,9 +77,9 @@ body {
                         font-size: 2.5rem;
                         margin: 0 10px;
                         margin: 0 auto;
-                        
                         justify-content: space-around;
                     }
+
                     span {
                         width: 100%;
                         display: flex;
@@ -138,9 +119,7 @@ body {
                         .MainModalInsideTheModal {
                             text-align: right;
                         }
-
                     }
-
                 }
 
                 Button {
@@ -159,10 +138,6 @@ body {
                     background-color: red;
                 }
             }
-
-
-
-
         }
 
 
@@ -172,30 +147,14 @@ body {
             width: 95%;
             margin: 0 auto;
             margin-top: 15px;
-            // position: relative;
 
             .monthsContainer {
                 width: 100%;
                 display: flex;
                 flex-wrap: wrap;
                 // background-color: orange;
-                // position: absolute;
                 justify-content: center;
                 bottom: 2px;
-
-                // @include Res500 {
-                //     display: flex;
-                //     flex-wrap: wrap;
-                //     object-fit: contain;
-                //     // position: unset;
-                // };
-
-                // @include iphone12Pro {
-                //     display: flex;
-                //     flex-wrap: wrap;
-                //     object-fit: contain;
-                //     // position: unset;
-                // };
 
                 .months {
                     background-color: $primary4;
@@ -312,16 +271,16 @@ body {
 
         //#region days of the week
         .daysOfWeek {
+            // background-color: deeppink;
+            background-color: $primary3;
             width: 95%;
             margin: 0 auto;
-            background-color: $primary3;
-            // background-color: deeppink;
             display: flex;
-            // justify-content: space-evenly;
-            // align-items: center;
             border: solid 1px rgba(0, 0, 0, 0.798);
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
+
+            @include iphone12Pro {width: 99%;};
 
             
             .weekdays {
@@ -331,7 +290,7 @@ body {
                 justify-content: center;
                 align-items: center;
                 color: $primaryBlack;
-                // border: solid 1px $primary5;
+                
             }
             #Sun {
                 border: solid 1px $primary5;
@@ -361,18 +320,39 @@ body {
     }
 
     .Footer {
-        background-color: $primary3;
-        // opacity: 0;
-        // width: 100%;
-        // height: 5vh; // windowed view
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
+        background-color: $primary2;
+        background-image: linear-gradient($primary2, $primary3);
+        width: 100%;
+        height: 2vh;
+        position: sticky;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
 
-        .footerContent {
-            background-color: darkgray;
-            
+        // @include iphone12Pro {position: unset;};
+
+        .footerContentArea {
+            // background-color: darkgray;
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+
+            h6 {
+                // background-color: blue;
+                width: fit-content;
+                font-size: 0.9rem;
+                @include iphone12Pro {font-size: 0.7rem};
+                
+            }
+            a {
+                // background-color: green;
+                width: fit-content;
+                color: $secondary3;
+                font-size: 1.1rem;
+                @include iphone12Pro {font-size: 0.9rem};
+            }
         }
     }
-
 }

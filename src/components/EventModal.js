@@ -86,6 +86,8 @@ export default function EventModal(props) {
 
         </Modal.Header>
         <Modal.Body>
+
+          <div className='modal-display-text'>
             {`Start Time: ${startTime} | Date: ${startMonth} ${startDay}`}
 
             <br/><br/>
@@ -96,30 +98,38 @@ export default function EventModal(props) {
 
             <br/><br/>
             Participants: {props.eventParticipants} <br/>
+          </div>
+
 
             <br/>
-            <Button variant="success" size="sm" onClick={(id) => {
-              updateEventName(id)
-            }}>Edit Event Name</Button>
-            <Button variant="success" size="sm" onClick={(id) => {
-              updateParticipants(id)
-            }}>Edit Participants</Button>
-            <Button variant="success" size="sm" onClick={(id) => {
-              updateDescription(id)
-            }}>Edit Description</Button>
 
-            <br/><br/><br/><br/>
-
-            <Button variant="danger" onClick={(id) => {
-              deleteEvent(id)
-            }}>Delete Event</Button>
             
 
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
+        
+          <div className='modal-edit-buttons'>
+            <Button variant="success" size="sm" onClick={(id) => {
+              updateEventName(id)
+              }}>Edit Event Name</Button>
+            <Button variant="success" size="sm" onClick={(id) => {
+              updateParticipants(id)
+              }}>Edit Participants</Button>
+            <Button variant="success" size="sm" onClick={(id) => {
+              updateDescription(id)
+              }}>Edit Description</Button>
+            <br/><br/>
+          </div>
+
+          <div className='delete-close'>
+            <Button variant="danger" onClick={(id) => {
+              deleteEvent(id)
+              }}>Delete Event</Button>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </div>
+
         </Modal.Footer>
       </Modal>
     </>
