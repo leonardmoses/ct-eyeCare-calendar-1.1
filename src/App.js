@@ -24,7 +24,8 @@ const getEvents = () => {
   }, []);
   // #endregion GET request
 
-  // console.log(events)
+  console.log(events)
+  console.log(events[0])
 
   return (
 

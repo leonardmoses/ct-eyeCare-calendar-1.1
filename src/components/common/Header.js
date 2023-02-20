@@ -12,7 +12,7 @@ const Header = () => {
             
             <div className="HeaderTopBlock">
 
-                <div className="titleDiv"><h1>See-Care-Cal</h1></div>
+                <div className="titleDiv"><h1>Calendar App</h1></div>
 
                 
                 <div className="yearDiv">
